@@ -21,6 +21,125 @@
 
 	<!--google material icon-->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<style>
+		/* Cambiar el fondo del menú */
+		#sidebar {
+			background-color: #0e1214;
+			box-shadow: none !important;
+			/* Cambia esto al color de fondo deseado */
+		}
+
+		/* Cambiar el color del texto del menú */
+		#sidebar a {
+			color: #ecf0f1;
+			/* Cambia esto al color de texto deseado */
+		}
+
+		/* Cambiar el color del icono */
+		#sidebar .material-icons {
+			color: #f8f8f8 !important;
+		}
+
+		.collapse>li>a,
+		.dashboard,
+		.dropdown-toggle {
+			color: #fff4f4 !important;
+		}
+
+		/* Cambiar el color del enlace activo */
+		#sidebar a.active {
+			background-color: #e74c3c;
+			/* Cambia esto al color deseado para el enlace activo */
+			color: #ffffff;
+			/* Cambia esto al color de texto deseado para el enlace activo */
+		}
+
+		.logo {
+			color: #1de9b6 !important;
+		}
+
+		.sidebar-header {
+			background-color: #11171a !important;
+			border: none !important;
+		}
+
+		#sidebar ul li a:hover {
+			background-color: #0e1214;
+			color: #1de9b6 !important;
+		}
+
+		body {
+			background-color: #0e1214;
+		}
+
+		.top-navbar,
+		.navbar {
+			background-color: #11171a !important;
+		}
+
+		.table-title {
+			background-color: #11171a !important;
+			border-radius: none !important;
+		}
+
+		input[type="search"],
+		.xp-searchbar .btn {
+			background-color: #161d20 !important;
+			color: white !important;
+		}
+
+		.table-wrapper {
+			background-color: #11171a;
+		}
+
+		.modal-header,
+		.modal-footer,
+		.modal-content {
+			background-color: #11171a !important;
+			color: white;
+			border: none;
+		}
+
+		.btn-success {
+			background-color: #16ad50 !important;
+			border: none !important;
+		}
+
+		.btn-secondary{
+			background-color: #192225 !important;
+			border: none !important;
+		}
+
+
+
+		.modal-body {
+			background-color: #0e1214;
+			color: white;
+			border: none;
+		}
+
+		span {
+			color: white !important;
+		}
+
+		input::selection{
+			background-color: rgb(187, 187, 187);
+		}
+
+		th,
+		td,
+		table {
+			background-color: none !important;
+			border: none !important;
+			border-bottom: 1px solid #161d20;
+			background-color: #11171a !important;
+			color: white !important;
+		}
+
+		thead>tr>th {
+			color: #1de9b6 !important;
+		}
+	</style>
 
 </head>
 
@@ -33,7 +152,9 @@
 
 		<div id="sidebar">
 			<div class="sidebar-header">
-				<a href="index.html"><h3><span>WEBCLIN</span></h3></a>
+				<a href="index.html">
+					<h3 class="logo">WEBCLIN</h3>
+				</a>
 			</div>
 			<ul class="list-unstyled component m-0">
 				<li class="">
@@ -159,8 +280,6 @@
 			<div class="main-content">
 				<div class="row">
 					<div class="col-md-12">
-
-
 						<div class="table-wrapper" id="tablaPacientes">
 							<div class="table-title">
 								<div class="row">
@@ -215,19 +334,18 @@
 										</th>
 									</tr>
 								</tbody>
-
-
 							</table>
 						</div>
+					</div>
 
 
 
 
 
 
-						<!-- otra tabla de citas -->
-
-						<div class="table-wrapper" id="tablaCitas">
+					<!-- otra tabla de citas -->
+					<div class="col-md-12">
+						<div class="table-wrapper table-responsive" id="tablaCitas">
 
 							<div class="table-title">
 								<div class="row">
@@ -283,10 +401,11 @@
 
 							</table>
 						</div>
+					</div>
 
 
-						<!-- otra tabla -->
-
+					<!-- otra tabla -->
+					<div class="col-md-12">
 						<div class="table-wrapper" id="tablaPersonal">
 
 							<div class="table-title">
@@ -348,582 +467,580 @@
 
 							</table>
 						</div>
-
-						<!----add-modal start--------->
-						<div class="modal fade" tabindex="-1" id="agregarPacienteModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Agregar Paciente</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Nombre -->
-												<div class="form-group">
-													<label>Nombre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Apellido Paterno -->
-												<div class="form-group">
-													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Apellido Materno -->
-												<div class="form-group">
-													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Fecha de Nacimiento -->
-												<div class="form-group">
-													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" required>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="row">
-											<div class="col-md-6">
-												<!--  Tipo de sangre -->
-												<div class="form-group">
-													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- telefono -->
-												<div class="form-group">
-													<label>Teléfono:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Correo:</label>
-													<input type="email" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Tipo de Paciente:</label>
-													<select class="form-control" required>
-														<option value="tipo1">normal</option>
-														<option value="tipo2">frecuente</option>
-														<option value="tipo3">especial</option>
-														<option value="tipo3">discapacitado</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Agregar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!----add-modal end--------->
-
-						<!-- Modal de Editar Paciente -->
-						<div class="modal fade" tabindex="-1" id="editarPacienteModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Editar Paciente</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>ID:</label>
-													<input type="text" class="form-control" value="ID_DEL_PACIENTE"
-														readonly>
-												</div>
-												<div class="form-group">
-													<label>Nombre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<!-- Resto de las cajas de entrada -->
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Teléfono:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Correo:</label>
-													<input type="email" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Tipo de Paciente:</label>
-													<select class="form-control" required>
-														<option value="tipo1">Normal</option>
-														<option value="tipo2">Frecuente</option>
-														<option value="tipo3">Especial</option>
-														<option value="tipo4">Discapacitado</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Guardar Cambios</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!----edit-modal end--------->
-
-
-						<!----delete-modal start--------->
-						<div class="modal fade" tabindex="-1" id="eliminarPacienteModal" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Eliminar paciente</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>Estas seguro de eliminar este registro? </p>
-										<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
-										</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancel</button>
-										<button type="button" class="btn btn-success">Eliminar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!----delete-modal end--------->
-
-
-						<!----add-modal-cita start--------->
-						<div class="modal fade" tabindex="-1" id="agregarCitaModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Agregar Cita</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="row">
-											<div class="col-md-6">
-												<!-- ID Paciente -->
-												<div class="form-group">
-													<label>ID Paciente:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- ID Personal -->
-												<div class="form-group">
-													<label>ID Personal:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Número de Sala -->
-												<div class="form-group">
-													<label>Número de Sala:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Fecha -->
-												<div class="form-group">
-													<label>Fecha:</label>
-													<input type="date" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Hora -->
-												<div class="form-group">
-													<label>Hora:</label>
-													<input type="time" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Motivo de la Cita -->
-												<div class="form-group">
-													<label>Motivo de la Cita:</label>
-													<textarea class="form-control" required></textarea>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Agregar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!----add-modal end--------->
-
-						<!-- Modal de Editar Cita -->
-						<div class="modal fade" tabindex="-1" id="editarCitaModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Editar Cita</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="form-group">
-											<label>ID:</label>
-											<input type="text" class="form-control" value="ID_DE_LA_CITA" readonly>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>ID Paciente:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Número de Sala:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Fecha:</label>
-													<input type="date" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>ID Personal:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Hora:</label>
-													<input type="time" class="form-control" required>
-												</div>
-												<div class="form-group">
-													<label>Motivo de la Cita:</label>
-													<textarea class="form-control" required></textarea>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Guardar Cambios</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-						<!----delete-modal start--------->
-						<div class="modal fade" tabindex="-1" id="eliminarCitaModal" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Eliminar cita</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>Estas seguro de eliminar este registro? </p>
-										<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
-										</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancel</button>
-										<button type="button" class="btn btn-success">Eliminar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!----delete-modal end--------->
-
-						<!-- Modal de Agregar Personal -->
-						<div class="modal fade" tabindex="-1" id="agregarPersonalModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Agregar Personal</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Nombre -->
-												<div class="form-group">
-													<label>Nombre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<!-- Apellido Materno -->
-												<div class="form-group">
-													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Apellido Paterno -->
-												<div class="form-group">
-													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<!-- Fecha de Nacimiento -->
-												<div class="form-group">
-													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" required>
-												</div>
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Cargo -->
-												<div class="form-group">
-													<label>Cargo:</label>
-													<input type="text" class="form-control" required>
-												</div>
-												<!-- Teléfono -->
-												<div class="form-group">
-													<label>Teléfono:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Correo -->
-												<div class="form-group">
-													<label>Correo:</label>
-													<input type="email" class="form-control" required>
-												</div>
-												<!-- Domicilio -->
-												<div class="form-group">
-													<label>Domicilio:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-
-										<!-- Clasificación -->
-										<div class="form-group">
-											<label>Clasificación:</label>
-											<select class="form-control" required>
-												<option value="DT">DT</option>
-												<option value="ET">ET</option>
-											</select>
-										</div>
-
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Agregar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-						<!-- Modal de Editar Personal -->
-						<div class="modal fade" tabindex="-1" id="editarPersonalModal" role="dialog">
-							<div class="modal-dialog" style="min-width: fit-content" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Editar Personal</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div class="form-group">
-											<label>ID:</label>
-											<input type="text" class="form-control" value="ID_DEL_PERSONAL" readonly>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Nombre -->
-												<div class="form-group">
-													<label>Nombre:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Apellido Paterno -->
-												<div class="form-group">
-													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Apellido Materno -->
-												<div class="form-group">
-													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Fecha de Nacimiento -->
-												<div class="form-group">
-													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Cargo -->
-												<div class="form-group">
-													<label>Cargo:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Teléfono -->
-												<div class="form-group">
-													<label>Teléfono:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<!-- Correo -->
-												<div class="form-group">
-													<label>Correo:</label>
-													<input type="email" class="form-control" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<!-- Domicilio -->
-												<div class="form-group">
-													<label>Domicilio:</label>
-													<input type="text" class="form-control" required>
-												</div>
-											</div>
-										</div>
-										<!-- Clasificación -->
-										<div class="form-group">
-											<label>Clasificación:</label>
-											<select class="form-control" required>
-												<option value="DT">DT</option>
-												<option value="ET">ET</option>
-											</select>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<button type="button" class="btn btn-success">Guardar Cambios</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-						<!----delete-modal start--------->
-						<div class="modal fade" tabindex="-1" id="eliminarPersonalModal" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Eliminar personal</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>Estas seguro de eliminar este registro? </p>
-										<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
-										</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancel</button>
-										<button type="button" class="btn btn-success">Eliminar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!----delete-modal end--------->
-
-
-
-
 					</div>
+
+					<!----add-modal start--------->
+					<div class="modal fade" tabindex="-1" id="agregarPacienteModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Agregar Paciente</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Nombre -->
+											<div class="form-group">
+												<label>Nombre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Apellido Paterno -->
+											<div class="form-group">
+												<label>Apellido Paterno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Apellido Materno -->
+											<div class="form-group">
+												<label>Apellido Materno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Fecha de Nacimiento -->
+											<div class="form-group">
+												<label>Fecha de Nacimiento:</label>
+												<input type="date" class="form-control" required>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<!--  Tipo de sangre -->
+											<div class="form-group">
+												<label>Tipo de Sangre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- telefono -->
+											<div class="form-group">
+												<label>Teléfono:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Correo:</label>
+												<input type="email" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tipo de Paciente:</label>
+												<select class="form-control" required>
+													<option value="tipo1">normal</option>
+													<option value="tipo2">frecuente</option>
+													<option value="tipo3">especial</option>
+													<option value="tipo3">discapacitado</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Agregar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!----add-modal end--------->
+
+					<!-- Modal de Editar Paciente -->
+					<div class="modal fade" tabindex="-1" id="editarPacienteModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Editar Paciente</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>ID:</label>
+												<input type="text" class="form-control" value="ID_DEL_PACIENTE"
+													readonly>
+											</div>
+											<div class="form-group">
+												<label>Nombre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Apellido Paterno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Apellido Materno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Fecha de Nacimiento:</label>
+												<input type="date" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Tipo de Sangre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<!-- Resto de las cajas de entrada -->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Teléfono:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Correo:</label>
+												<input type="email" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tipo de Paciente:</label>
+												<select class="form-control" required>
+													<option value="tipo1">Normal</option>
+													<option value="tipo2">Frecuente</option>
+													<option value="tipo3">Especial</option>
+													<option value="tipo4">Discapacitado</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Guardar Cambios</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!----edit-modal end--------->
+
+
+					<!----delete-modal start--------->
+					<div class="modal fade" tabindex="-1" id="eliminarPacienteModal" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Eliminar paciente</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Estas seguro de eliminar este registro? </p>
+									<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
+									</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-success">Eliminar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!----delete-modal end--------->
+
+
+					<!----add-modal-cita start--------->
+					<div class="modal fade" tabindex="-1" id="agregarCitaModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Agregar Cita</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-6">
+											<!-- ID Paciente -->
+											<div class="form-group">
+												<label>ID Paciente:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- ID Personal -->
+											<div class="form-group">
+												<label>ID Personal:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Número de Sala -->
+											<div class="form-group">
+												<label>Número de Sala:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Fecha -->
+											<div class="form-group">
+												<label>Fecha:</label>
+												<input type="date" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Hora -->
+											<div class="form-group">
+												<label>Hora:</label>
+												<input type="time" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Motivo de la Cita -->
+											<div class="form-group">
+												<label>Motivo de la Cita:</label>
+												<textarea class="form-control" required></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Agregar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!----add-modal end--------->
+
+					<!-- Modal de Editar Cita -->
+					<div class="modal fade" tabindex="-1" id="editarCitaModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Editar Cita</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<label>ID:</label>
+										<input type="text" class="form-control" value="ID_DE_LA_CITA" readonly>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>ID Paciente:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Número de Sala:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Fecha:</label>
+												<input type="date" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>ID Personal:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Hora:</label>
+												<input type="time" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label>Motivo de la Cita:</label>
+												<textarea class="form-control" required></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Guardar Cambios</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!----delete-modal start--------->
+					<div class="modal fade" tabindex="-1" id="eliminarCitaModal" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Eliminar cita</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Estas seguro de eliminar este registro? </p>
+									<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
+									</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-success">Eliminar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!----delete-modal end--------->
+
+					<!-- Modal de Agregar Personal -->
+					<div class="modal fade" tabindex="-1" id="agregarPersonalModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Agregar Personal</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Nombre -->
+											<div class="form-group">
+												<label>Nombre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<!-- Apellido Materno -->
+											<div class="form-group">
+												<label>Apellido Materno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Apellido Paterno -->
+											<div class="form-group">
+												<label>Apellido Paterno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<!-- Fecha de Nacimiento -->
+											<div class="form-group">
+												<label>Fecha de Nacimiento:</label>
+												<input type="date" class="form-control" required>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Cargo -->
+											<div class="form-group">
+												<label>Cargo:</label>
+												<input type="text" class="form-control" required>
+											</div>
+											<!-- Teléfono -->
+											<div class="form-group">
+												<label>Teléfono:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Correo -->
+											<div class="form-group">
+												<label>Correo:</label>
+												<input type="email" class="form-control" required>
+											</div>
+											<!-- Domicilio -->
+											<div class="form-group">
+												<label>Domicilio:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+
+									<!-- Clasificación -->
+									<div class="form-group">
+										<label>Clasificación:</label>
+										<select class="form-control" required>
+											<option value="DT">DT</option>
+											<option value="ET">ET</option>
+										</select>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Agregar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- Modal de Editar Personal -->
+					<div class="modal fade" tabindex="-1" id="editarPersonalModal" role="dialog">
+						<div class="modal-dialog" style="min-width: fit-content" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Editar Personal</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<label>ID:</label>
+										<input type="text" class="form-control" value="ID_DEL_PERSONAL" readonly>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Nombre -->
+											<div class="form-group">
+												<label>Nombre:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Apellido Paterno -->
+											<div class="form-group">
+												<label>Apellido Paterno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Apellido Materno -->
+											<div class="form-group">
+												<label>Apellido Materno:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Fecha de Nacimiento -->
+											<div class="form-group">
+												<label>Fecha de Nacimiento:</label>
+												<input type="date" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Cargo -->
+											<div class="form-group">
+												<label>Cargo:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Teléfono -->
+											<div class="form-group">
+												<label>Teléfono:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<!-- Correo -->
+											<div class="form-group">
+												<label>Correo:</label>
+												<input type="email" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<!-- Domicilio -->
+											<div class="form-group">
+												<label>Domicilio:</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+									</div>
+									<!-- Clasificación -->
+									<div class="form-group">
+										<label>Clasificación:</label>
+										<select class="form-control" required>
+											<option value="DT">DT</option>
+											<option value="ET">ET</option>
+										</select>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success">Guardar Cambios</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!----delete-modal start--------->
+					<div class="modal fade" tabindex="-1" id="eliminarPersonalModal" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Eliminar personal</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Estas seguro de eliminar este registro? </p>
+									<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
+									</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-success">Eliminar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!----delete-modal end--------->
+
+
+
+
+
 				</div>
-
-				<!------main-content-end----------->
-
 			</div>
 		</div>
-
-
-		<!-------complete html----------->
-
 	</div>
+	<!------main-content-end----------->
+
+
+
+	<!-------complete html----------->
+
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -965,23 +1082,23 @@
 		// Agregar manejadores de eventos a los botones
 		btnMostrarPacientes.addEventListener('click', function () {
 			ocultarTablas();
-			tablaPacientes.style.display = 'table'; // Mostrar tabla de pacientes
+			tablaPacientes.style.display = 'block'; // Mostrar tabla de pacientes
 			console.log('click');
 		});
 
 		btnMostrarCitas.addEventListener('click', function () {
 			ocultarTablas();
-			tablaCitas.style.display = 'table'; // Mostrar tabla de citas
+			tablaCitas.style.display = 'block'; // Mostrar tabla de citas
 		});
 
 		btnMostrarPersonal.addEventListener('click', function () {
 			ocultarTablas();
-			tablaPersonal.style.display = 'table'; // Mostrar tabla de personal
+			tablaPersonal.style.display = 'block'; // Mostrar tabla de personal
 		});
 
 		// Ocultar todas las tablas inicialmente
 		ocultarTablas();
-		tablaPacientes.style.display = 'table';
+		tablaPacientes.style.display = 'block';
 
 	</script>
 
