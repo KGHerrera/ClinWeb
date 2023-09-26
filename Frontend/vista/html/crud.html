@@ -65,7 +65,10 @@
 
 		#sidebar ul li a:hover {
 			background-color: #0e1214;
-			color: #1de9b6 !important;
+		}
+
+		.list-unstyled li a:hover {
+			color: white !important;
 		}
 
 		body {
@@ -78,7 +81,7 @@
 		}
 
 		.table-title {
-			background-color: #11171a !important;
+			background-color: #192225 !important;
 			border-radius: none !important;
 		}
 
@@ -105,7 +108,7 @@
 			border: none !important;
 		}
 
-		.btn-secondary{
+		.btn-secondary {
 			background-color: #192225 !important;
 			border: none !important;
 		}
@@ -122,22 +125,23 @@
 			color: white !important;
 		}
 
-		input::selection{
+		input::selection {
 			background-color: rgb(187, 187, 187);
-		}
-
-		th,
-		td,
-		table {
-			background-color: none !important;
-			border: none !important;
-			border-bottom: 1px solid #161d20;
-			background-color: #11171a !important;
-			color: white !important;
 		}
 
 		thead>tr>th {
 			color: #1de9b6 !important;
+		}
+
+		thead {
+			background-color: #192225 !important;
+			border: none !important;
+		}
+
+		tr,
+		th {
+			border: none !important;
+			color: white;
 		}
 	</style>
 
@@ -156,24 +160,25 @@
 					<h3 class="logo">WEBCLIN</h3>
 				</a>
 			</div>
-			<ul class="list-unstyled component m-0">
-				<li class="">
-					<a href="#" class="dashboard"><i class="material-icons">dashboard</i>acciones </a>
-				</li>
+			<div class="container pt-3">
+				<p class="m-0">formularios</p>
+			</div>
 
 
-				<li class="dropdown">
-					<a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">content_copy</i>formularios
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu7">
-						<li><a href="#" id="mostrarPacientes"><i class="material-icons">person</i>paciente</a></li>
-						<li><a href="#" id="mostrarCitas"><i class="material-icons">event</i>cita</a></li>
-						<li><a href="#" id="mostrarPersonal"><i class="material-icons">person_outline</i>personal</a>
-						</li>
-					</ul>
-				</li>
+			<ul class="list-unstyled component m-0 p-0">
+				<li><a href="#" id="mostrarPacientes"><i class="material-icons">person</i>paciente</a></li>
+				<li><a href="#" id="mostrarCitas"><i class="material-icons">event</i>cita</a></li>
+				<li><a href="#" id="mostrarPersonal"><i class="material-icons">person_outline</i>personal</a></li>
+			</ul>
 
+			<div class="container pt-3">
+				<p class="m-0">reportes</p>
+
+
+			</div>
+
+			<ul class="list-unstyled component m-0 p-0">
+				<li><a href="#"><i class="material-icons">book</i>generar reporte</a></li>
 			</ul>
 		</div>
 
@@ -289,7 +294,7 @@
 									<div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
 										<a href="#agregarPacienteModal" class="btn btn-success" data-toggle="modal">
 											<i class="material-icons">&#xE147;</i>
-											<span>Agregar Paciente</span>
+											<span>Agregar</span>
 										</a>
 									</div>
 								</div>
@@ -299,13 +304,13 @@
 								<thead>
 									<tr>
 										<!-- <th>seleccionar</th> -->
-										<th>id paciente</th>
-										<th>nombre completo</th>
+										<th>ID</th>
+										<th>nombre</th>
 										<th>fecha de nacimiento</th>
 										<th>tipo de sangre</th>
 										<th>telefono</th>
 										<th>correo</th>
-										<th>tipo de paciente</th>
+										<th>tipo paciente</th>
 										<th>acciones</th>
 									</tr>
 								</thead>
@@ -355,7 +360,7 @@
 									<div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
 										<a href="#agregarCitaModal" class="btn btn-success" data-toggle="modal">
 											<i class="material-icons">&#xE147;</i>
-											<span>Agregar Cita</span>
+											<span>Agregar</span>
 										</a>
 									</div>
 								</div>
@@ -416,7 +421,7 @@
 									<div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
 										<a href="#agregarPersonalModal" class="btn btn-success" data-toggle="modal">
 											<i class="material-icons">&#xE147;</i>
-											<span>Agregar Personal</span>
+											<span>Agregar</span>
 										</a>
 									</div>
 								</div>
@@ -426,8 +431,8 @@
 								<thead>
 									<tr>
 										<!-- <th>seleccionar</th> -->
-										<th>id personal</th>
-										<th>nombre completo</th>
+										<th>ID</th>
+										<th>nombre</th>
 										<th>fecha de nacimiento</th>
 										<th>cargo</th>
 										<th>telefono</th>
