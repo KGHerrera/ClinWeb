@@ -18,7 +18,7 @@ class Conexion
 
         try {
             Conexion::$conexion = new PDO($dsn, $usuario, $contrasenia, $opciones);
-            echo 'se conecto con exito';
+            //echo 'se conecto con exito';
         } catch (PDOException $e) {
             echo 'Error de conexión: ' . $e->getMessage();
             exit;

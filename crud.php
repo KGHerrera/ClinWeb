@@ -17,6 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/scrollbar.css">
 
 
 	<!--google material icon-->
@@ -238,8 +239,7 @@
 
 										<li class="dropdown nav-item">
 											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="https://art.ngfiles.com/thumbnails/1443000/1443313_full.png?f1601406845"
-													style="width:40px; border-radius:50%;" />
+												<img src="https://art.ngfiles.com/thumbnails/1443000/1443313_full.png?f1601406845" style="width:40px; border-radius:50%;" />
 												<span class="xp-user-live"></span>
 											</a>
 											<ul class="dropdown-menu small-menu">
@@ -317,29 +317,11 @@
 								</thead>
 
 								<tbody>
-									<tr>
-										<!-- <th><span class="custom-checkbox">
-												<input type="checkbox" id="checkbox1" name="option[]" value="1">
-												<label for="checkbox1"></label></th> -->
-										<th>1</th>
-										<th>Kris Topala Rent</th>
-										<th>25/02/23</th>
-										<th>B+</th>
-										<th>4945123309</th>
-										<th>kris.tr@gmail.com</th>
-										<th>inseguro</th>
-										<th>KRHEG123</th>
-										<th>
-											<a href="#editarPacienteModal" class="edit" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Edit">&#xE254;</i>
-											</a>
-											<a href="#eliminarPacienteModal" class="delete" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Delete">&#xE872;</i>
-											</a>
-										</th>
-									</tr>
+									<?php
+
+									include('tablaPacientes.php');
+
+									?>
 								</tbody>
 							</table>
 						</div>
@@ -394,12 +376,10 @@
 										<th>enfermedad cranial</th>
 										<th>
 											<a href="#editarCitaModal" class="edit" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Edit">&#xE254;</i>
+												<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
 											</a>
 											<a href="#eliminarCitaModal" class="delete" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Delete">&#xE872;</i>
+												<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
 											</a>
 										</th>
 									</tr>
@@ -460,12 +440,10 @@
 										<th>DT</th>
 										<th>
 											<a href="#editarPersonalModal" class="edit" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Edit">&#xE254;</i>
+												<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
 											</a>
 											<a href="#eliminarPersonalModal" class="delete" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip"
-													title="Delete">&#xE872;</i>
+												<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
 											</a>
 										</th>
 									</tr>
@@ -476,7 +454,7 @@
 						</div>
 					</div>
 
-					<!----add-modal start--------->
+					<!----add-modal paciente start--------->
 					<div class="modal fade" tabindex="-1" id="agregarPacienteModal" role="dialog">
 						<div class="modal-dialog" style="min-width: fit-content" role="document">
 							<div class="modal-content">
@@ -568,11 +546,10 @@
 									</div>
 								</div>
 
-								
+
 
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Agregar</button>
 								</div>
 							</div>
@@ -596,30 +573,29 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>ID:</label>
-												<input type="text" class="form-control" value="ID_DEL_PACIENTE"
-													readonly>
+												<input type="text" class="form-control" id="inputID" readonly>
 											</div>
 											<div class="form-group">
 												<label>Nombre:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputNombre" required>
 											</div>
 											<div class="form-group">
 												<label>Apellido Paterno:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputApellidoPaterno" required>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Apellido Materno:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputApellidoMaterno" required>
 											</div>
 											<div class="form-group">
 												<label>Fecha de Nacimiento:</label>
-												<input type="date" class="form-control" required>
+												<input type="date" class="form-control" id="inputFechaNacimiento" required>
 											</div>
 											<div class="form-group">
 												<label>Tipo de Sangre:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputTipoSangre" required>
 											</div>
 										</div>
 									</div>
@@ -628,34 +604,35 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Teléfono:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputTelefono" required>
 											</div>
 											<div class="form-group">
 												<label>Correo:</label>
-												<input type="email" class="form-control" required>
+												<input type="email" class="form-control" id="inputCorreo" required>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Tipo de Paciente:</label>
-												<select class="form-control" required>
-													<option value="tipo1">Normal</option>
-													<option value="tipo2">Frecuente</option>
-													<option value="tipo3">Especial</option>
-													<option value="tipo4">Discapacitado</option>
+												<select class="form-control" id="inputTipoPaciente" required>
+													<option value="Normal">Normal</option>
+													<option value="Frecuente">Frecuente</option>
+													<option value="Especial">Especial</option>
+													<option value="Discapacitado">Discapacitado</option>
+													<option value="Discapacitado">VIP</option>
+													<option value="Discapacitado">Regular</option>
 												</select>
 											</div>
 											<div class="form-group">
 												<label>RFC:</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="inputRFC" required>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
-									<button type="button" class="btn btn-success">Guardar Cambios</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-success" onclick="guardarCambios()">Guardar Cambios</button>
 								</div>
 							</div>
 						</div>
@@ -751,8 +728,7 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Agregar</button>
 								</div>
 							</div>
@@ -807,8 +783,7 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Guardar Cambios</button>
 								</div>
 							</div>
@@ -917,8 +892,7 @@
 
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Agregar</button>
 								</div>
 							</div>
@@ -1015,8 +989,7 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Guardar Cambios</button>
 								</div>
 							</div>
@@ -1050,9 +1023,6 @@
 					<!----delete-modal end--------->
 
 
-
-
-
 				</div>
 			</div>
 		</div>
@@ -1074,56 +1044,37 @@
 
 
 	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".xp-menubar").on('click', function () {
-				$("#sidebar").toggleClass('active');
-				$("#content").toggleClass('active');
-			});
+		function openEditModalPaciente(event) {
+			event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+			var idPaciente = event.target.getAttribute('data-id-paciente');
+			var nombre = event.target.getAttribute('data-nombre');
+			var apellidoPaterno = event.target.getAttribute('data-apellido-paterno');
+			var apellidoMaterno = event.target.getAttribute('data-apellido-materno');
+			var fechaNacimiento = event.target.getAttribute('data-fecha-nacimiento');
+			var tipoSangre = event.target.getAttribute('data-tipo-sangre');
+			var telefono = event.target.getAttribute('data-telefono');
+			var correo = event.target.getAttribute('data-correo');
+			var tipoPaciente = event.target.getAttribute('data-tipo-paciente');
+			var rfc = event.target.getAttribute('data-rfc');
 
-			$('.xp-menubar,.body-overlay').on('click', function () {
-				$("#sidebar,.body-overlay").toggleClass('show-nav');
-			});
+			document.getElementById('inputID').value = idPaciente;
+			document.getElementById('inputNombre').value = nombre;
+			document.getElementById('inputApellidoPaterno').value = apellidoPaterno;
+			document.getElementById('inputApellidoMaterno').value = apellidoMaterno;
+			document.getElementById('inputFechaNacimiento').value = fechaNacimiento;
+			document.getElementById('inputTipoSangre').value = tipoSangre;
+			document.getElementById('inputTelefono').value = telefono;
+			document.getElementById('inputCorreo').value = correo;
+			document.getElementById('inputTipoPaciente').value = tipoPaciente;
+			document.getElementById('inputRFC').value = rfc;
 
-		});
-
-		// Obtén referencias a las tablas y botones
-		const tablaPacientes = document.getElementById('tablaPacientes');
-		const tablaCitas = document.getElementById('tablaCitas');
-		const tablaPersonal = document.getElementById('tablaPersonal');
-
-		const btnMostrarPacientes = document.getElementById('mostrarPacientes');
-		const btnMostrarCitas = document.getElementById('mostrarCitas');
-		const btnMostrarPersonal = document.getElementById('mostrarPersonal');
-
-		// Función para ocultar todas las tablas
-		function ocultarTablas() {
-			tablaPacientes.style.display = 'none';
-			tablaCitas.style.display = 'none';
-			tablaPersonal.style.display = 'none';
+			$('#editarPacienteModal').modal('show');
 		}
 
-		// Agregar manejadores de eventos a los botones
-		btnMostrarPacientes.addEventListener('click', function () {
-			ocultarTablas();
-			tablaPacientes.style.display = 'block'; // Mostrar tabla de pacientes
-			console.log('click');
-		});
-
-		btnMostrarCitas.addEventListener('click', function () {
-			ocultarTablas();
-			tablaCitas.style.display = 'block'; // Mostrar tabla de citas
-		});
-
-		btnMostrarPersonal.addEventListener('click', function () {
-			ocultarTablas();
-			tablaPersonal.style.display = 'block'; // Mostrar tabla de personal
-		});
-
-		// Ocultar todas las tablas inicialmente
-		ocultarTablas();
-		tablaPacientes.style.display = 'block';
-
+		
 	</script>
+
+	<script src="./assets/js/crud_load.js"></script>
 
 
 
