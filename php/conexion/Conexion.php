@@ -85,6 +85,50 @@ class Conexion
 
         return false;
     }
+
+    public static function actualizarPaciente($paciente)
+    {
+        try {
+            Conexion::$conexion->beginTransaction();
+
+            $sql = 'UPDATE Paciente SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, fecha_nacimiento = ?, tipo_sangre = ?, telefono = ?, correo = ?, tipo_paciente = ?, rfc = ? WHERE id_paciente = ?';
+
+            $query = Conexion::$conexion->prepare($sql);
+            Conexion::$conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            $query->bindValue(1, $paciente->getNombre(), PDO::PARAM_STR);
+            $query->bindValue(2, $paciente->getApellidoPaterno(), PDO::PARAM_STR);
+            $query->bindValue(3, $paciente->getApellidoMaterno(), PDO::PARAM_STR);
+            $query->bindValue(4, $paciente->getFechaNacimiento(), PDO::PARAM_STR); // Asegúrate de que $paciente->getFechaNacimiento() devuelva un formato de fecha válido.
+            $query->bindValue(5, $paciente->getTipoSangre(), PDO::PARAM_STR);
+            $query->bindValue(6, $paciente->getTelefono(), PDO::PARAM_STR);
+            $query->bindValue(7, $paciente->getCorreo(), PDO::PARAM_STR);
+            $query->bindValue(8, $paciente->getTipoPaciente(), PDO::PARAM_STR);
+            $query->bindValue(9, $paciente->getRFC(), PDO::PARAM_STR);
+            $query->bindValue(10, $paciente->getIdPaciente(), PDO::PARAM_INT);
+            $query->execute();
+
+            Conexion::$conexion->commit();
+
+            return true;
+        } catch (Exception $e) {
+            Conexion::$conexion->rollBack();
+        }
+
+        return false;
+    }
+
+    public static function mostrarPacientes()
+    {
+        try {
+            $sql = 'SELECT * FROM Paciente';
+            $query = Conexion::$conexion->prepare($sql);
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo 'Error en la consulta: ' . $e->getMessage();
+            return null;
+        }
+    }
 }
 
 Conexion::obtenerConexion();
