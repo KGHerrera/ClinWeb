@@ -64,8 +64,27 @@ class Conexion
 
         return false;
     }
+
+    public static function bajaPaciente($idPaciente)
+    {
+        try {
+            Conexion::$conexion->beginTransaction();
+
+            $sql = 'DELETE FROM Paciente WHERE id_paciente = ?';
+
+            $query = Conexion::$conexion->prepare($sql);
+            $query->bindValue(1, $idPaciente, PDO::PARAM_INT);
+            $query->execute();
+
+            Conexion::$conexion->commit();
+
+            return true;
+        } catch (Exception $e) {
+            Conexion::$conexion->rollBack();
+        }
+
+        return false;
+    }
 }
 
 Conexion::obtenerConexion();
-
-?>
