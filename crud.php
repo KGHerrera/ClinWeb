@@ -685,9 +685,13 @@
 									<p class="text-warning"><small>esta accion no tiene ctrl - z,</small>
 									</p>
 								</div>
+
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-success">Eliminar</button>
+									<form id="eliminarPacienteForm" action="./php/controlador/eliminarPaciente.php" method="POST">
+										<input type="text" id="inputIdPacienteDelete" name="id_paciente" value="" style="display: none;">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-success">Eliminar</button>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -1099,9 +1103,26 @@
                         position: "bottomRight"
                     });
                   </script>';
+		} elseif ($tipoMensaje == 5) {
+			echo '<script>
+                    iziToast.success({
+                        title: "Éxito",
+                        message: "El paciente se eliminó correctamente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
+		} elseif ($tipoMensaje == 6) {
+			echo '<script>
+                    iziToast.error({
+                        title: "Error",
+                        message: "No se pudo eliminar el paciente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
 		}
 	}
 	?>
+
 
 
 
@@ -1145,6 +1166,13 @@
 			document.getElementById('inputRFC').value = rfc;
 
 			$('#editarPacienteModal').modal('show');
+		}
+
+		function openDeleteModalPaciente(event) {
+			event.preventDefault();
+			var idPaciente = event.target.getAttribute('data-id-paciente');
+			document.getElementById('inputIdPacienteDelete').value = idPaciente;
+			$('#eliminarPacienteModal').modal('show');
 		}
 	</script>
 

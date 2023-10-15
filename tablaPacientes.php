@@ -22,8 +22,8 @@ if ($resultado->rowCount()) {
                 <a class='material-icons' style='font-size:1.2rem; color: yellow;' href='#editarPacienteModal' class='edit' data-toggle='modal' data-id-paciente='%s' data-nombre='%s' data-apellido-paterno='%s' data-apellido-materno='%s' data-fecha-nacimiento='%s' data-tipo-sangre='%s' data-telefono='%s' data-correo='%s' data-tipo-paciente='%s' data-rfc='%s' onclick='openEditModalPaciente(event)'>
                     &#xE254
                 </a>
-                <a href='#eliminarPacienteModal' class='delete' data-toggle='modal' data-id-paciente='%s'>
-                    <i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i>
+                <a class='material-icons' style='font-size:1.2rem; color: red;' href='#eliminarPacienteModal' class='delete' data-toggle='modal' data-id-paciente='%s' onclick='openDeleteModalPaciente(event)'>
+                    &#xE872
                 </a>
             </th>",
             $result["id_paciente"], $result["nombre"], $result["apellido_paterno"], $result["apellido_materno"], $result["fecha_nacimiento"], $result["tipo_sangre"], $result["telefono"], $result["correo"], $result["tipo_paciente"], $result["rfc"],
