@@ -592,75 +592,80 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<div class="modal-body">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>ID:</label>
-												<input type="text" class="form-control" id="inputID" readonly>
+								<form id="editarPacienteForm" action="./php/controlador/modificarPaciente.php" method="POST">
+									<div class="modal-body">
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>ID:</label>
+													<input type="text" class="form-control" id="inputID" name="idPaciente" readonly>
+												</div>
+												<div class="form-group">
+													<label>Nombre:</label>
+													<input type="text" class="form-control" id="inputNombre" name="nombre" required>
+												</div>
+												<div class="form-group">
+													<label>Apellido Paterno:</label>
+													<input type="text" class="form-control" id="inputApellidoPaterno" name="apellido_paterno" required>
+												</div>
 											</div>
-											<div class="form-group">
-												<label>Nombre:</label>
-												<input type="text" class="form-control" id="inputNombre" required>
-											</div>
-											<div class="form-group">
-												<label>Apellido Paterno:</label>
-												<input type="text" class="form-control" id="inputApellidoPaterno" required>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Apellido Materno:</label>
+													<input type="text" class="form-control" id="inputApellidoMaterno" name="apellido_materno" required>
+												</div>
+												<div class="form-group">
+													<label>Fecha de Nacimiento:</label>
+													<input type="date" class="form-control" id="inputFechaNacimiento" name="fecha_nacimiento" required>
+												</div>
+												<div class="form-group">
+													<label>Tipo de Sangre:</label>
+													<input type="text" class="form-control" id="inputTipoSangre" name="tipo_sangre" required>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Apellido Materno:</label>
-												<input type="text" class="form-control" id="inputApellidoMaterno" required>
+										<!-- Resto de las cajas de entrada -->
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Teléfono:</label>
+													<input type="text" class="form-control" id="inputTelefono" name="telefono" required>
+												</div>
+												<div class="form-group">
+													<label>Correo:</label>
+													<input type="email" class="form-control" id="inputCorreo" name="correo" required>
+												</div>
 											</div>
-											<div class="form-group">
-												<label>Fecha de Nacimiento:</label>
-												<input type="date" class="form-control" id="inputFechaNacimiento" required>
-											</div>
-											<div class="form-group">
-												<label>Tipo de Sangre:</label>
-												<input type="text" class="form-control" id="inputTipoSangre" required>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Tipo de Paciente:</label>
+													<select class="form-control" id="inputTipoPaciente" name="tipo_paciente" required>
+														<option value="normal">Normal</option>
+														<option value="frecuente">Frecuente</option>
+														<option value="especial">Especial</option>
+														<option value="discapacitado">Discapacitado</option>
+														<option value="vip">VIP</option>
+														<option value="regular">Regular</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label>RFC:</label>
+													<input type="text" class="form-control" id="inputRFC" name="rfc" required>
+												</div>
 											</div>
 										</div>
 									</div>
-									<!-- Resto de las cajas de entrada -->
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Teléfono:</label>
-												<input type="text" class="form-control" id="inputTelefono" required>
-											</div>
-											<div class="form-group">
-												<label>Correo:</label>
-												<input type="email" class="form-control" id="inputCorreo" required>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Tipo de Paciente:</label>
-												<select class="form-control" id="inputTipoPaciente" required>
-													<option value="normal">Normal</option>
-													<option value="frecuente">Frecuente</option>
-													<option value="especial">Especial</option>
-													<option value="discapacitado">Discapacitado</option>
-													<option value="vip">VIP</option>
-													<option value="regular">Regular</option>
-												</select>
-											</div>
-											<div class="form-group">
-												<label>RFC:</label>
-												<input type="text" class="form-control" id="inputRFC" required>
-											</div>
-										</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+										<button type="submit" class="btn btn-success">Guardar Cambios</button>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-									<button type="button" class="btn btn-success" onclick="guardarCambios()">Guardar Cambios</button>
-								</div>
+								</form>
 							</div>
 						</div>
 					</div>
+
 
 					<!----edit-modal end--------->
 
@@ -1078,9 +1083,26 @@
                         position: "bottomRight"
                     });
                   </script>';
+		} elseif ($tipoMensaje == 3) {
+			echo '<script>
+                    iziToast.success({
+                        title: "Éxito",
+                        message: "El paciente se modificó correctamente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
+		} elseif ($tipoMensaje == 4) {
+			echo '<script>
+                    iziToast.error({
+                        title: "Error",
+                        message: "No se pudo modificar el paciente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
 		}
 	}
 	?>
+
 
 
 	<!-------complete html----------->
