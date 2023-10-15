@@ -17,6 +17,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<!-- Incluye los estilos de iziToast (puedes personalizar esto según tus necesidades) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+
+	<!-- Incluye la biblioteca iziToast -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
 	<link rel="stylesheet" href="/assets/css/scrollbar.css">
 
 
@@ -143,6 +149,23 @@
 		th {
 			border: none !important;
 			color: white;
+		}
+
+		body::-webkit-scrollbar {
+			width: 1em;
+		}
+
+		body::-webkit-scrollbar-track {
+			background: #11171a;
+		}
+
+		body::-webkit-scrollbar-thumb {
+			background-color: #263238;
+			border-radius: 5px;
+		}
+
+		body::-webkit-scrollbar-thumb:hover {
+			background-color: #25cfa5;
 		}
 	</style>
 
@@ -334,7 +357,7 @@
 
 					<!-- otra tabla de citas -->
 					<div class="col-md-12">
-						<div class="table-wrapper table-responsive" id="tablaCitas">
+						<div class="table-wrapper table-responsive" id="tablaCitas" style="display:none;">
 
 							<div class="table-title">
 								<div class="row">
@@ -393,7 +416,7 @@
 
 					<!-- otra tabla -->
 					<div class="col-md-12">
-						<div class="table-wrapper" id="tablaPersonal">
+						<div class="table-wrapper" id="tablaPersonal" style="display:none;">
 
 							<div class="table-title">
 								<div class="row">
@@ -465,96 +488,97 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<div class="row">
-										<div class="col-md-6">
-											<!-- Nombre -->
-											<div class="form-group">
-												<label>Nombre:</label>
-												<input type="text" class="form-control" required>
+									<form action="./php/controlador/agregarPaciente.php" method="POST">
+										<div class="row">
+											<div class="col-md-6">
+												<!-- Nombre -->
+												<div class="form-group">
+													<label>Nombre:</label>
+													<input type="text" class="form-control" name="nombre" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<!-- Apellido Paterno -->
+												<div class="form-group">
+													<label>Apellido Paterno:</label>
+													<input type="text" class="form-control" name="apellido_paterno" required>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<!-- Apellido Paterno -->
-											<div class="form-group">
-												<label>Apellido Paterno:</label>
-												<input type="text" class="form-control" required>
+										<div class="row">
+											<div class="col-md-6">
+												<!-- Apellido Materno -->
+												<div class="form-group">
+													<label>Apellido Materno:</label>
+													<input type="text" class="form-control" name="apellido_materno" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<!-- Fecha de Nacimiento -->
+												<div class="form-group">
+													<label>Fecha de Nacimiento:</label>
+													<input type="date" class="form-control" name="fecha_nacimiento" required>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<!-- Apellido Materno -->
-											<div class="form-group">
-												<label>Apellido Materno:</label>
-												<input type="text" class="form-control" required>
+										<div class="row">
+											<div class="col-md-6">
+												<!-- Tipo de Sangre -->
+												<div class="form-group">
+													<label>Tipo de Sangre:</label>
+													<input type="text" class="form-control" name="tipo_sangre" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<!-- Teléfono -->
+												<div class="form-group">
+													<label>Teléfono:</label>
+													<input type="text" class="form-control" name="telefono" required>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<!-- Fecha de Nacimiento -->
-											<div class="form-group">
-												<label>Fecha de Nacimiento:</label>
-												<input type="date" class="form-control" required>
+										<div class="row">
+											<div class="col-md-6">
+												<!-- RFC -->
+												<div class="form-group">
+													<label>RFC:</label>
+													<input type="text" class="form-control" name="rfc" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<!-- Tipo de Paciente -->
+												<div class="form-group">
+													<label>Tipo de Paciente:</label>
+													<select class="form-control" name="tipo_paciente" required>
+														<option value="normal">Normal</option>
+														<option value="frecuente">Frecuente</option>
+														<option value="especial">Especial</option>
+														<option value="discapacitado">Discapacitado</option>
+														<option value="vip">VIP</option>
+														<option value="regular">Regular</option>
+													</select>
+												</div>
 											</div>
 										</div>
-									</div>
-
-
-									<div class="row">
-										<div class="col-md-6">
-											<!--  Tipo de sangre -->
-											<div class="form-group">
-												<label>Tipo de Sangre:</label>
-												<input type="text" class="form-control" required>
+										<div class="row">
+											<div class="col-md-12">
+												<!-- Correo -->
+												<div class="form-group">
+													<label>Correo:</label>
+													<input type="email" class="form-control" name="correo" required>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<!-- telefono -->
-											<div class="form-group">
-												<label>Teléfono:</label>
-												<input type="text" class="form-control" required>
-											</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+											<button type="submit" class="btn btn-success">Agregar</button>
 										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>RFC:</label>
-												<input type="text" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Tipo de Paciente:</label>
-												<select class="form-control" required>
-													<option value="tipo1">normal</option>
-													<option value="tipo2">frecuente</option>
-													<option value="tipo3">especial</option>
-													<option value="tipo3">discapacitado</option>
-												</select>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Correo:</label>
-												<input type="email" class="form-control" required>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-									<button type="button" class="btn btn-success">Agregar</button>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
+
 
 					<!----add-modal end--------->
 
@@ -615,12 +639,12 @@
 											<div class="form-group">
 												<label>Tipo de Paciente:</label>
 												<select class="form-control" id="inputTipoPaciente" required>
-													<option value="Normal">Normal</option>
-													<option value="Frecuente">Frecuente</option>
-													<option value="Especial">Especial</option>
-													<option value="Discapacitado">Discapacitado</option>
-													<option value="Discapacitado">VIP</option>
-													<option value="Discapacitado">Regular</option>
+													<option value="normal">Normal</option>
+													<option value="frecuente">Frecuente</option>
+													<option value="especial">Especial</option>
+													<option value="discapacitado">Discapacitado</option>
+													<option value="vip">VIP</option>
+													<option value="regular">Regular</option>
 												</select>
 											</div>
 											<div class="form-group">
@@ -1023,12 +1047,40 @@
 					<!----delete-modal end--------->
 
 
+					<!-- Mensajes del toast -->
+					<!-- Código de las tostadas -->
+
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 	<!------main-content-end----------->
 
+	<?php
+	// Verificar si hay un mensaje y mostrar iziToast según el tipo de mensaje
+	if (isset($_GET['mensaje'])) {
+		$tipoMensaje = $_GET['mensaje'];
+		if ($tipoMensaje == 1) {
+			echo '<script>
+                    iziToast.success({
+                        title: "Éxito",
+                        message: "El paciente se agregó correctamente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
+		} elseif ($tipoMensaje == 0) {
+			echo '<script>
+                    iziToast.error({
+                        title: "Error",
+                        message: "No se pudo agregar el paciente.",
+                        position: "bottomRight"
+                    });
+                  </script>';
+		}
+	}
+	?>
 
 
 	<!-------complete html----------->
@@ -1057,6 +1109,8 @@
 			var tipoPaciente = event.target.getAttribute('data-tipo-paciente');
 			var rfc = event.target.getAttribute('data-rfc');
 
+			console.log(tipoPaciente)
+
 			document.getElementById('inputID').value = idPaciente;
 			document.getElementById('inputNombre').value = nombre;
 			document.getElementById('inputApellidoPaterno').value = apellidoPaterno;
@@ -1070,8 +1124,6 @@
 
 			$('#editarPacienteModal').modal('show');
 		}
-
-		
 	</script>
 
 	<script src="./assets/js/crud_load.js"></script>
