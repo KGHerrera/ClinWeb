@@ -23,10 +23,10 @@ class PacienteDAO
         return Conexion::actualizarPaciente($paciente);
     }
 
-    // public function buscarPaciente($criterios)
-    // {
-    //     return Conexion::buscarPaciente($criterios);
-    // }
+    public function buscarPaciente($criterio)
+     {
+         return Conexion::buscarPaciente($criterio);
+    }
 
     public function mostrarPacientes()
     {

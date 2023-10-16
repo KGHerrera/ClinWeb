@@ -227,13 +227,17 @@
 
 						<div class="col-md-5 col-lg-3 order-3 order-md-2">
 							<div class="xp-searchbar">
-								<form>
+								<form id="searchForm">
 									<div class="input-group">
-										<input type="search" class="form-control" placeholder="Search">
+										<input type="search" class="form-control" name="buscar_paciente" placeholder="Search" id="searchInput">
 										<div class="input-group-append">
-											<button class="btn" type="submit" id="button-addon2">Buscar
-											</button>
+											<button class="btn" type="submit" id="buscar_paciente">Buscar</button>
 										</div>
+
+										<div class="input-group-append">
+											<button class="btn" type="button" id="mostrar_pacientes" onClick="verTodos()">Ver todos</button>
+										</div>
+
 									</div>
 								</form>
 							</div>
@@ -341,9 +345,7 @@
 
 								<tbody>
 									<?php
-
 									include('tablaPacientes.php');
-
 									?>
 								</tbody>
 							</table>
@@ -1179,7 +1181,31 @@
 	<script src="./assets/js/crud_load.js"></script>
 
 
+	<script>
+		// Obtén el formulario y el contenedor de resultados
+		const searchForm = document.getElementById('searchForm');
+		const resultadoBusqueda = document.getElementById('resultadoBusqueda');
 
+		// Maneja el evento de envío del formulario
+		searchForm.addEventListener('submit', function(event) {
+			event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+			// Obtiene el valor del input de búsqueda
+			const searchTerm = document.getElementById('searchInput').value;
+
+			// Modifica la URL sin redirigir y recarga la página
+			const newUrl = `?q=${searchTerm}`;
+			history.pushState(null, null, newUrl);
+			location.href = newUrl;
+		});
+	</script>
+
+	<script>
+		function verTodos() {
+			// Limpiar la URL y recargar la página
+			window.location.href = window.location.pathname;
+		}
+	</script>
 
 
 </body>

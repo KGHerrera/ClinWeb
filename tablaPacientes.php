@@ -4,7 +4,17 @@ include('./php/conexion/Conexion.php');
 include('./php/controlador/PacienteDAO.php');
 
 $pacienteDAO = new PacienteDAO();
-$resultado = $pacienteDAO->mostrarPacientes();
+
+// Obtener el valor del parámetro 'q' de la URL
+$nombre = isset($_GET['q']) ? $_GET['q'] : '';
+
+// Realizar la búsqueda solo si 'q' no está vacío
+if (!empty($nombre)) {
+    $resultado = $pacienteDAO->buscarPaciente($nombre);
+} else {
+    // Si 'q' está vacío, mostrar todos los pacientes
+    $resultado = $pacienteDAO->mostrarPacientes();
+}
 
 if ($resultado->rowCount()) {
     while ($result = $resultado->fetch(PDO::FETCH_ASSOC)) {
@@ -26,12 +36,20 @@ if ($resultado->rowCount()) {
                     &#xE872
                 </a>
             </th>",
-            $result["id_paciente"], $result["nombre"], $result["apellido_paterno"], $result["apellido_materno"], $result["fecha_nacimiento"], $result["tipo_sangre"], $result["telefono"], $result["correo"], $result["tipo_paciente"], $result["rfc"],
+            $result["id_paciente"],
+            $result["nombre"],
+            $result["apellido_paterno"],
+            $result["apellido_materno"],
+            $result["fecha_nacimiento"],
+            $result["tipo_sangre"],
+            $result["telefono"],
+            $result["correo"],
+            $result["tipo_paciente"],
+            $result["rfc"],
             $result["id_paciente"]
         );
         printf("</tr>");
     }
 } else {
-    echo ("Aún no se han agregado pacientes");
+    //echo ("No se encontraron pacientes.");
 }
-?>

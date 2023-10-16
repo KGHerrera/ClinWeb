@@ -129,6 +129,36 @@ class Conexion
             return null;
         }
     }
+
+    public static function buscarPaciente($criterio)
+    {
+        try {
+            $sql = "SELECT * FROM Paciente WHERE ";
+            $conditions = [];
+
+            // Es importante escapar el criterio para evitar inyección de SQL
+            $criterio = Conexion::$conexion->quote("%$criterio%");
+
+            // Definir todos los campos de la tabla Paciente
+            $campos = ['nombre', 'apellido_paterno', 'apellido_materno', 'fecha_nacimiento', 'tipo_sangre', 'telefono', 'correo', 'tipo_paciente', 'rfc'];
+
+            // Construir las condiciones para cada campo
+            foreach ($campos as $campo) {
+                $conditions[] = "$campo LIKE $criterio";
+            }
+
+            $consulta = $sql . implode(" OR ", $conditions);
+
+            $query = Conexion::$conexion->prepare($consulta);
+            $query->execute();
+
+            return $query;
+        } catch (Exception $e) {
+            echo 'Error en la búsqueda: ' . $e->getMessage();
+        }
+
+        return null;
+    }
 }
 
 Conexion::obtenerConexion();
