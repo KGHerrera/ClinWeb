@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
 	<!-- Required meta tags -->
@@ -23,7 +23,7 @@
 	<!-- Incluye la biblioteca iziToast -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 
-	<link rel="stylesheet" href="/assets/css/scrollbar.css">
+	<link rel="stylesheet" href="assets/css/scrollbar.css">
 
 
 	<!--google material icon-->
@@ -233,11 +233,6 @@
 										<div class="input-group-append">
 											<button class="btn" type="submit" id="buscar_paciente">Buscar</button>
 										</div>
-
-										<div class="input-group-append">
-											<button class="btn" type="button" id="mostrar_pacientes" onClick="verTodos()">Ver todos</button>
-										</div>
-
 									</div>
 								</form>
 							</div>
@@ -490,20 +485,22 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="./php/controlador/agregarPaciente.php" method="POST">
+									<form action="./php/controlador/agregarPaciente.php" method="POST" id="agregarPacienteForm">
 										<div class="row">
 											<div class="col-md-6">
 												<!-- Nombre -->
 												<div class="form-group">
 													<label>Nombre:</label>
-													<input type="text" class="form-control" name="nombre" required>
+													<input type="text" class="form-control" name="nombre" id="nombre">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<!-- Apellido Paterno -->
 												<div class="form-group">
 													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" name="apellido_paterno" required>
+													<input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 										</div>
@@ -512,14 +509,16 @@
 												<!-- Apellido Materno -->
 												<div class="form-group">
 													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" name="apellido_materno" required>
+													<input type="text" class="form-control" name="apellido_materno" id="apellido_materno">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<!-- Fecha de Nacimiento -->
 												<div class="form-group">
 													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" name="fecha_nacimiento" required>
+													<input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 										</div>
@@ -528,14 +527,16 @@
 												<!-- Tipo de Sangre -->
 												<div class="form-group">
 													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" name="tipo_sangre" required>
+													<input type="text" class="form-control" name="tipo_sangre" id="tipo_sangre">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<!-- Teléfono -->
 												<div class="form-group">
 													<label>Teléfono:</label>
-													<input type="text" class="form-control" name="telefono" required>
+													<input type="text" class="form-control" name="telefono" id="telefono">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 										</div>
@@ -544,14 +545,16 @@
 												<!-- RFC -->
 												<div class="form-group">
 													<label>RFC:</label>
-													<input type="text" class="form-control" name="rfc" required>
+													<input type="text" class="form-control" name="rfc" id="rfc">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<!-- Tipo de Paciente -->
 												<div class="form-group">
 													<label>Tipo de Paciente:</label>
-													<select class="form-control" name="tipo_paciente" required>
+													<select class="form-control" name="tipo_paciente" id="tipo_paciente">
+														<option value="0">Selecciona opcion...</option>
 														<option value="normal">Normal</option>
 														<option value="frecuente">Frecuente</option>
 														<option value="especial">Especial</option>
@@ -559,6 +562,7 @@
 														<option value="vip">VIP</option>
 														<option value="regular">Regular</option>
 													</select>
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 										</div>
@@ -567,7 +571,8 @@
 												<!-- Correo -->
 												<div class="form-group">
 													<label>Correo:</label>
-													<input type="email" class="form-control" name="correo" required>
+													<input type="email" class="form-control" name="correo" id="correo">
+													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
 										</div>
@@ -582,6 +587,9 @@
 					</div>
 
 
+
+
+
 					<!----add-modal end--------->
 
 					<!-- Modal de Editar Paciente -->
@@ -594,55 +602,81 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<form id="editarPacienteForm" action="./php/controlador/modificarPaciente.php" method="POST">
-									<div class="modal-body">
-
+								<div class="modal-body">
+									<form action="./php/controlador/modificarPaciente.php" method="POST" id="editarPacienteForm">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-6 d-none">
 												<div class="form-group">
 													<label>ID:</label>
 													<input type="text" class="form-control" id="inputID" name="idPaciente" readonly>
 												</div>
+											</div>
+											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nombre:</label>
-													<input type="text" class="form-control" id="inputNombre" name="nombre" required>
-												</div>
-												<div class="form-group">
-													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" id="inputApellidoPaterno" name="apellido_paterno" required>
+													<input type="text" class="form-control" id="inputNombre" name="nombre">
+													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" id="inputApellidoMaterno" name="apellido_materno" required>
-												</div>
-												<div class="form-group">
-													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" id="inputFechaNacimiento" name="fecha_nacimiento" required>
-												</div>
-												<div class="form-group">
-													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" id="inputTipoSangre" name="tipo_sangre" required>
+													<label>Apellido Paterno:</label>
+													<input type="text" class="form-control" id="inputApellidoPaterno" name="apellido_paterno">
+													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 										</div>
-										<!-- Resto de las cajas de entrada -->
+
+
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Teléfono:</label>
-													<input type="text" class="form-control" id="inputTelefono" name="telefono" required>
+													<label>Apellido Materno:</label>
+													<input type="text" class="form-control" id="inputApellidoMaterno" name="apellido_materno">
+													<span class="errorModificar text-danger"></span>
 												</div>
+											</div>
+											<div class="col-md-6">
 												<div class="form-group">
-													<label>Correo:</label>
-													<input type="email" class="form-control" id="inputCorreo" name="correo" required>
+													<label>Fecha de Nacimiento:</label>
+													<input type="date" class="form-control" id="inputFechaNacimiento" name="fecha_nacimiento">
+													<span class="errorModificar text-danger"></span>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Tipo de Sangre:</label>
+													<input type="text" class="form-control" id="inputTipoSangre" name="tipo_sangre">
+													<span class="errorModificar text-danger"></span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Teléfono:</label>
+													<input type="text" class="form-control" id="inputTelefono" name="telefono">
+													<span class="errorModificar text-danger"></span>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>RFC:</label>
+													<input type="text" class="form-control" id="inputRFC" name="rfc">
+													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Tipo de Paciente:</label>
-													<select class="form-control" id="inputTipoPaciente" name="tipo_paciente" required>
+													<select class="form-control" id="inputTipoPaciente" name="tipo_paciente">
+														<option value="0">Selecciona opcion ...</option>
 														<option value="normal">Normal</option>
 														<option value="frecuente">Frecuente</option>
 														<option value="especial">Especial</option>
@@ -650,26 +684,36 @@
 														<option value="vip">VIP</option>
 														<option value="regular">Regular</option>
 													</select>
-												</div>
-												<div class="form-group">
-													<label>RFC:</label>
-													<input type="text" class="form-control" id="inputRFC" name="rfc" required>
+													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 										</div>
-									</div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-success">Guardar Cambios</button>
-									</div>
-								</form>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<div class="form-group">
+														<label>Correo:</label>
+														<input type="email" class="form-control" id="inputCorreo" name="correo">
+														<span class="errorModificar text-danger"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+											<button type="submit" class="btn btn-warning">Guardar Cambios</button>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
 
 
 					<!----edit-modal end--------->
+
 
 
 					<!----delete-modal start--------->
@@ -692,7 +736,7 @@
 									<form id="eliminarPacienteForm" action="./php/controlador/eliminarPaciente.php" method="POST">
 										<input type="text" id="inputIdPacienteDelete" name="id_paciente" value="" style="display: none;">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-										<button type="submit" class="btn btn-success">Eliminar</button>
+										<button type="submit" class="btn btn-danger">Eliminar</button>
 									</form>
 								</div>
 							</div>
@@ -1206,6 +1250,9 @@
 			window.location.href = window.location.pathname;
 		}
 	</script>
+
+	<script src="assets/js/validacionAltas.js"></script>
+	<script src="assets/js/validacionModificaciones.js"></script>
 
 
 </body>

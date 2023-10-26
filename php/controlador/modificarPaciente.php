@@ -5,7 +5,7 @@ include('../controlador/PacienteDAO.php');
 
 // Verificar que los datos no estén vacíos
 if (empty($_POST['idPaciente']) || empty($_POST['nombre']) || empty($_POST['apellido_paterno']) || empty($_POST['apellido_materno']) || empty($_POST['fecha_nacimiento']) || empty($_POST['tipo_sangre']) || empty($_POST['telefono']) || empty($_POST['correo']) || empty($_POST['tipo_paciente']) || empty($_POST['rfc'])) {
-    header('Location: ../../altasPacientes.php?mensaje=4'); // Mensaje para campos vacíos
+    header('Location: ../../crud.php?mensaje=4'); // Mensaje para campos vacíos
     exit();
 }
 
