@@ -1,4 +1,3 @@
-
 <?php
 
 class PacienteDAO
@@ -24,8 +23,8 @@ class PacienteDAO
     }
 
     public function buscarPaciente($criterio)
-     {
-         return Conexion::buscarPaciente($criterio);
+    {
+        return Conexion::buscarPaciente($criterio);
     }
 
     public function mostrarPacientes()
@@ -33,5 +32,4 @@ class PacienteDAO
         return Conexion::mostrarPacientes();
     }
 }
-
 ?>

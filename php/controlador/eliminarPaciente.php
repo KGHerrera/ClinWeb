@@ -10,10 +10,12 @@ if (!empty($_POST['id_paciente'])) {
     Conexion::obtenerConexion();
     $resultado = $pacienteDAO->bajaPaciente($id_paciente);
     if ($resultado) {
-        header('Location: ../../crud.php?mensaje=5'); // Redirige a la página de lista de pacientes con mensaje 5 (eliminación exitosa)
+        header('Location: ../../crud.php?mensaje=5');
     } else {
-        header('Location: ../../crud.php?mensaje=6'); // Redirige a la página de lista de pacientes con mensaje 6 (error al eliminar)
+        header('Location: ../../crud.php?mensaje=6');
     }
 } else {
-    header('Location: ../../crud.php?mensaje=8'); // Redirige a la página de lista de pacientes con mensaje 6 (error al eliminar debido a falta de datos)
+    header('Location: ../../crud.php?mensaje=6');
 }
+
+?>

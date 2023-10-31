@@ -34,4 +34,5 @@ if ($resultado) {
 } else {
     header('Location: ../../crud.php?mensaje=2'); // Mensaje de error al actualizar
 }
+
 ?>

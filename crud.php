@@ -229,14 +229,32 @@
 							<div class="xp-searchbar">
 								<form id="searchForm">
 									<div class="input-group">
-										<input type="search" class="form-control" name="buscar_paciente" placeholder="Search" id="searchInput">
+										<input type="search" class="form-control" name="buscar_paciente" placeholder="Buscar Paciente" id="searchInput">
 										<div class="input-group-append">
-											<button class="btn" type="submit" id="buscar_paciente">Buscar</button>
+											<button class="btn" type="submit" id="buscar_paciente">Ver todos</button>
 										</div>
 									</div>
 								</form>
 							</div>
 						</div>
+
+
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+						<script>
+							$(document).ready(function() {
+								// Detecta el evento de entrada en el campo de búsqueda
+								$('#searchInput').on('input', function() {
+									var searchTerm = $(this).val();
+									// Cambia el texto del botón dependiendo de si hay texto en el campo de búsqueda
+									if (searchTerm.trim() === '') {
+										$('#buscar_paciente').text('Ver todos');
+									} else {
+										$('#buscar_paciente').text('Buscar');
+									}
+								});
+							});
+						</script>
+
 
 
 						<div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">

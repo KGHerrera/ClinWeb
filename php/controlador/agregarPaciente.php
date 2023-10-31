@@ -15,20 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoPaciente = $_POST['tipo_paciente'];
     $rfc = $_POST['rfc'];
 
-    // Validar que los datos no estén vacíos
+
     if (empty($nombre) || empty($apellidoPaterno) || empty($fechaNacimiento) || empty($tipoSangre) || empty($telefono) || empty($correo) || empty($tipoPaciente) || empty($rfc)) {
         header('Location: ../../crud.php?mensaje=0');
         exit();
     }
 
-    // Crear una instancia de Paciente con los datos del formulario
     $paciente = new Paciente(0, $nombre, $apellidoPaterno, $apellidoMaterno, $fechaNacimiento, $tipoSangre, $telefono, $correo, $tipoPaciente, $rfc);
 
-    // Invocar el método para agregar paciente en PacienteDAO
+
     $pacienteDAO = new PacienteDAO();
     $resultado = $pacienteDAO->altaPaciente($paciente);
 
-    // Redireccionar al formulario con el mensaje correspondiente
+
     if ($resultado) {
         header('Location: ../../crud.php?mensaje=1');
         exit();
