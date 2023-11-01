@@ -20,7 +20,7 @@ editarPacienteFormM.addEventListener("submit", (e) => {
     let fechamayor = fechaIngresada > fechaActual;
 
     validadoPacienteModificaciones = true;
-    const nombreRegex = /^[A-Za-z]+( [A-Za-z]+)*$/;
+    const nombreRegex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+( [A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*$/;
     const tipoSangreRegex = /^(A|B|AB|O)[+-]$/;
     const telefonoRegex = /^[0-9]+$/;
     const rfcRegex = /^[A-Z&Ñ]{3,4}[0-9]{6}/;

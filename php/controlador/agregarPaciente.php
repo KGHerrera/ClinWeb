@@ -4,7 +4,7 @@ include('../conexion/Conexion.php');
 include('../controlador/PacienteDAO.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los datos del formulario
+
     $nombre = $_POST['nombre'];
     $apellidoPaterno = $_POST['apellido_paterno'];
     $apellidoMaterno = $_POST['apellido_materno'];

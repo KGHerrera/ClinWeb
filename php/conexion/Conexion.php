@@ -47,7 +47,7 @@ class Conexion
             $query->bindValue(1, $paciente->getNombre(), PDO::PARAM_STR);
             $query->bindValue(2, $paciente->getApellidoPaterno(), PDO::PARAM_STR);
             $query->bindValue(3, $paciente->getApellidoMaterno(), PDO::PARAM_STR);
-            $query->bindValue(4, $paciente->getFechaNacimiento(), PDO::PARAM_STR); // Asegúrate de que $paciente->getFechaNacimiento() devuelva un formato de fecha válido.
+            $query->bindValue(4, $paciente->getFechaNacimiento(), PDO::PARAM_STR);
             $query->bindValue(5, $paciente->getTipoSangre(), PDO::PARAM_STR);
             $query->bindValue(6, $paciente->getTelefono(), PDO::PARAM_STR);
             $query->bindValue(7, $paciente->getCorreo(), PDO::PARAM_STR);
@@ -98,7 +98,7 @@ class Conexion
             $query->bindValue(1, $paciente->getNombre(), PDO::PARAM_STR);
             $query->bindValue(2, $paciente->getApellidoPaterno(), PDO::PARAM_STR);
             $query->bindValue(3, $paciente->getApellidoMaterno(), PDO::PARAM_STR);
-            $query->bindValue(4, $paciente->getFechaNacimiento(), PDO::PARAM_STR); // Asegúrate de que $paciente->getFechaNacimiento() devuelva un formato de fecha válido.
+            $query->bindValue(4, $paciente->getFechaNacimiento(), PDO::PARAM_STR);
             $query->bindValue(5, $paciente->getTipoSangre(), PDO::PARAM_STR);
             $query->bindValue(6, $paciente->getTelefono(), PDO::PARAM_STR);
             $query->bindValue(7, $paciente->getCorreo(), PDO::PARAM_STR);
@@ -136,13 +136,10 @@ class Conexion
             $sql = "SELECT * FROM Paciente WHERE ";
             $conditions = [];
 
-            // Es importante escapar el criterio para evitar inyección de SQL
             $criterio = Conexion::$conexion->quote("%$criterio%");
 
-            // Definir todos los campos de la tabla Paciente
             $campos = ['nombre', 'apellido_paterno', 'apellido_materno', 'fecha_nacimiento', 'tipo_sangre', 'telefono', 'correo', 'tipo_paciente', 'rfc'];
 
-            // Construir las condiciones para cada campo
             foreach ($campos as $campo) {
                 $conditions[] = "$campo LIKE $criterio";
             }

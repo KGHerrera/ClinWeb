@@ -5,14 +5,11 @@ include('./php/controlador/PacienteDAO.php');
 
 $pacienteDAO = new PacienteDAO();
 
-// Obtener el valor del parámetro 'q' de la URL
 $nombre = isset($_GET['q']) ? $_GET['q'] : '';
 
-// Realizar la búsqueda solo si 'q' no está vacío
 if (!empty($nombre)) {
     $resultado = $pacienteDAO->buscarPaciente($nombre);
 } else {
-    // Si 'q' está vacío, mostrar todos los pacientes
     $resultado = $pacienteDAO->mostrarPacientes();
 }
 
@@ -29,12 +26,14 @@ if ($resultado->rowCount()) {
         printf("<th>%s</th>", $result["rfc"]);
         printf(
             "<th>
-                <a class='material-icons' style='font-size:1.2rem; color: yellow;' href='#editarPacienteModal' class='edit' data-toggle='modal' data-id-paciente='%s' data-nombre='%s' data-apellido-paterno='%s' data-apellido-materno='%s' data-fecha-nacimiento='%s' data-tipo-sangre='%s' data-telefono='%s' data-correo='%s' data-tipo-paciente='%s' data-rfc='%s' onclick='openEditModalPaciente(event)'>
-                    &#xE254
-                </a>
-                <a class='material-icons' style='font-size:1.2rem; color: red;' href='#eliminarPacienteModal' class='delete' data-toggle='modal' data-id-paciente='%s' onclick='openDeleteModalPaciente(event)'>
-                    &#xE872
-                </a>
+                <div class='btn-group' role='group'>
+                    <a class='material-icons btn btn-warning text-dark mr-2' style='font-size:1.2rem;' href='#editarPacienteModal' class='edit' data-toggle='modal' data-id-paciente='%s' data-nombre='%s' data-apellido-paterno='%s' data-apellido-materno='%s' data-fecha-nacimiento='%s' data-tipo-sangre='%s' data-telefono='%s' data-correo='%s' data-tipo-paciente='%s' data-rfc='%s' onclick='openEditModalPaciente(event)'>
+                        &#xE254
+                    </a>
+                    <a class='material-icons btn btn-danger text-white' style='font-size:1.2rem;' href='#eliminarPacienteModal' class='delete' data-toggle='modal' data-id-paciente='%s' onclick='openDeleteModalPaciente(event)'>
+                        &#xE872
+                    </a>
+                </div>
             </th>",
             $result["id_paciente"],
             $result["nombre"],
@@ -53,3 +52,4 @@ if ($resultado->rowCount()) {
 } else {
     //echo ("No se encontraron pacientes.");
 }
+?>
