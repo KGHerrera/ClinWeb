@@ -29,22 +29,35 @@
 	<!--google material icon-->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 	<style>
+		:root {
+			--top-navbar-color: #212529;
+			--darker-color: #1c1e21;
+			--lighter-color: #343a40;
+			--accent-color: #0cc2c2;
+			--active-link-color: #dc3545;
+			--success-button-color: #198754;
+		}
+
 		/* Cambiar el fondo del menú */
 		#sidebar {
-			background-color: #0e1214;
+			background-color: var(--darker-color);
 			box-shadow: none !important;
 			/* Cambia esto al color de fondo deseado */
 		}
 
 		/* Cambiar el color del texto del menú */
 		#sidebar a {
-			color: #ecf0f1;
-			/* Cambia esto al color de texto deseado */
+			color: #fefefe;
 		}
 
 		/* Cambiar el color del icono */
 		#sidebar .material-icons {
 			color: #f8f8f8 !important;
+		}
+
+		td,
+		th {
+			white-space: nowrap;
 		}
 
 		.collapse>li>a,
@@ -55,23 +68,23 @@
 
 		/* Cambiar el color del enlace activo */
 		#sidebar a.active {
-			background-color: #e74c3c;
+			background-color: var(--active-link-color);
 			/* Cambia esto al color deseado para el enlace activo */
 			color: #ffffff;
 			/* Cambia esto al color de texto deseado para el enlace activo */
 		}
 
 		.logo {
-			color: #1de9b6 !important;
+			color: var(--accent-color) !important;
 		}
 
 		.sidebar-header {
-			background-color: #11171a !important;
+			background-color: var(--darker-color) !important;
 			border: none !important;
 		}
 
 		#sidebar ul li a:hover {
-			background-color: #0e1214;
+			background-color: var(--darker-color);
 		}
 
 		.list-unstyled li a:hover {
@@ -79,51 +92,49 @@
 		}
 
 		body {
-			background-color: #0e1214;
+			background-color: var(--darker-color);
 		}
 
 		.top-navbar,
 		.navbar {
-			background-color: #11171a !important;
+			background-color: var(--top-navbar-color) !important;
 		}
 
 		.table-title {
-			background-color: #192225 !important;
+			background-color: var(--top-navbar-color) !important;
 			border-radius: none !important;
 		}
 
 		input[type="search"],
 		.xp-searchbar .btn {
-			background-color: #161d20 !important;
+			background-color: var(--lighter-color) !important;
 			color: white !important;
 		}
 
 		.table-wrapper {
-			background-color: #11171a;
+			background-color: var(--darker-color);
 		}
 
 		.modal-header,
 		.modal-footer,
 		.modal-content {
-			background-color: #11171a !important;
+			background-color: var(--darker-color) !important;
 			color: white;
 			border: none;
 		}
 
 		.btn-success {
-			background-color: #16ad50 !important;
+			background-color: var(--success-button-color) !important;
 			border: none !important;
 		}
 
 		.btn-secondary {
-			background-color: #192225 !important;
+			background-color: var(--top-navbar-color) !important;
 			border: none !important;
 		}
 
-
-
 		.modal-body {
-			background-color: #0e1214;
+			background-color: var(--darker-color);
 			color: white;
 			border: none;
 		}
@@ -137,11 +148,12 @@
 		}
 
 		thead>tr>th {
-			color: #1de9b6 !important;
+			color: var(--accent-color) !important;
+			font-weight: 800 !important;
 		}
 
 		thead {
-			background-color: #192225 !important;
+			background-color: var(--top-navbar-color) !important;
 			border: none !important;
 		}
 
@@ -150,24 +162,8 @@
 			border: none !important;
 			color: white;
 		}
-
-		body::-webkit-scrollbar {
-			width: 1em;
-		}
-
-		body::-webkit-scrollbar-track {
-			background: #11171a;
-		}
-
-		body::-webkit-scrollbar-thumb {
-			background-color: #263238;
-			border-radius: 5px;
-		}
-
-		body::-webkit-scrollbar-thumb:hover {
-			background-color: #25cfa5;
-		}
 	</style>
+
 
 </head>
 
@@ -197,8 +193,6 @@
 
 			<div class="container pt-3">
 				<p class="m-0">reportes</p>
-
-
 			</div>
 
 			<ul class="list-unstyled component m-0 p-0">
@@ -229,7 +223,8 @@
 							<div class="xp-searchbar">
 								<form id="searchForm">
 									<div class="input-group">
-										<input type="search" class="form-control" name="buscar_paciente" placeholder="Buscar Paciente" id="searchInput">
+										<input type="search" class="form-control" name="buscar_paciente"
+											placeholder="Buscar Paciente" id="searchInput">
 										<div class="input-group-append">
 											<button class="btn" type="submit" id="buscar_paciente">Ver todos</button>
 										</div>
@@ -241,9 +236,9 @@
 
 						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 						<script>
-							$(document).ready(function() {
+							$(document).ready(function () {
 								// Detecta el evento de entrada en el campo de búsqueda
-								$('#searchInput').on('input', function() {
+								$('#searchInput').on('input', function () {
 									var searchTerm = $(this).val();
 									// Cambia el texto del botón dependiendo de si hay texto en el campo de búsqueda
 									if (searchTerm.trim() === '') {
@@ -279,7 +274,8 @@
 
 										<li class="dropdown nav-item">
 											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="https://art.ngfiles.com/thumbnails/1443000/1443313_full.png?f1601406845" style="width:40px; border-radius:50%;" />
+												<img src="https://art.ngfiles.com/thumbnails/1443000/1443313_full.png?f1601406845"
+													style="width:40px; border-radius:50%;" />
 												<span class="xp-user-live"></span>
 											</a>
 											<ul class="dropdown-menu small-menu">
@@ -346,8 +342,8 @@
 										<!-- <th>seleccionar</th> -->
 										<th>ID</th>
 										<th>nombre</th>
-										<th>fecha de nacimiento</th>
-										<th>tipo de sangre</th>
+										<th>F. nacimiento</th>
+										<th>T/sangre</th>
 										<th>telefono</th>
 										<th>correo</th>
 										<th>tipo paciente</th>
@@ -391,7 +387,6 @@
 							<table class="table table-striped table-hover">
 								<thead>
 									<tr>
-										<th>seleccionar</th>
 										<th>paciente</th>
 										<th>especialista</th>
 										<th>no. sala</th>
@@ -403,9 +398,7 @@
 
 								<tbody>
 									<tr>
-										<th><span class="custom-checkbox">
-												<input type="checkbox" id="checkbox1" name="option[]" value="1">
-												<label for="checkbox1"></label></th>
+									
 
 										<th>Kris Topala Rent</th>
 										<th>Spamton Ramos Rosas</th>
@@ -414,10 +407,12 @@
 										<th>enfermedad cranial</th>
 										<th>
 											<a href="#editarCitaModal" class="edit" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+												<i class="material-icons" data-toggle="tooltip"
+													title="Edit">&#xE254;</i>
 											</a>
 											<a href="#eliminarCitaModal" class="delete" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+												<i class="material-icons" data-toggle="tooltip"
+													title="Delete">&#xE872;</i>
 											</a>
 										</th>
 									</tr>
@@ -478,10 +473,12 @@
 										<th>DT</th>
 										<th>
 											<a href="#editarPersonalModal" class="edit" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+												<i class="material-icons" data-toggle="tooltip"
+													title="Edit">&#xE254;</i>
 											</a>
 											<a href="#eliminarPersonalModal" class="delete" data-toggle="modal">
-												<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+												<i class="material-icons" data-toggle="tooltip"
+													title="Delete">&#xE872;</i>
 											</a>
 										</th>
 									</tr>
@@ -503,7 +500,8 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="./php/controlador/agregarPaciente.php" method="POST" id="agregarPacienteForm">
+									<form action="./php/controlador/agregarPaciente.php" method="POST"
+										id="agregarPacienteForm">
 										<div class="row">
 											<div class="col-md-6">
 												<!-- Nombre -->
@@ -517,7 +515,8 @@
 												<!-- Apellido Paterno -->
 												<div class="form-group">
 													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno">
+													<input type="text" class="form-control" name="apellido_paterno"
+														id="apellido_paterno">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -527,7 +526,8 @@
 												<!-- Apellido Materno -->
 												<div class="form-group">
 													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" name="apellido_materno" id="apellido_materno">
+													<input type="text" class="form-control" name="apellido_materno"
+														id="apellido_materno">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -535,7 +535,8 @@
 												<!-- Fecha de Nacimiento -->
 												<div class="form-group">
 													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento">
+													<input type="date" class="form-control" name="fecha_nacimiento"
+														id="fecha_nacimiento">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -545,7 +546,8 @@
 												<!-- Tipo de Sangre -->
 												<div class="form-group">
 													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" name="tipo_sangre" id="tipo_sangre">
+													<input type="text" class="form-control" name="tipo_sangre"
+														id="tipo_sangre">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -553,7 +555,8 @@
 												<!-- Teléfono -->
 												<div class="form-group">
 													<label>Teléfono:</label>
-													<input type="text" class="form-control" name="telefono" id="telefono">
+													<input type="text" class="form-control" name="telefono"
+														id="telefono">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -571,7 +574,8 @@
 												<!-- Tipo de Paciente -->
 												<div class="form-group">
 													<label>Tipo de Paciente:</label>
-													<select class="form-control" name="tipo_paciente" id="tipo_paciente">
+													<select class="form-control" name="tipo_paciente"
+														id="tipo_paciente">
 														<option value="0">Selecciona opcion...</option>
 														<option value="normal">Normal</option>
 														<option value="frecuente">Frecuente</option>
@@ -584,6 +588,7 @@
 												</div>
 											</div>
 										</div>
+
 										<div class="row">
 											<div class="col-md-12">
 												<!-- Correo -->
@@ -594,9 +599,18 @@
 												</div>
 											</div>
 										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-											<button type="submit" class="btn btn-success">Agregar</button>
+
+										<div class="text-center mt-3">
+											<div class="row">
+												<div class="col-6">
+													<button type="button" class="btn btn-secondary btn-block"
+														data-dismiss="modal">Cancelar</button>
+												</div>
+												<div class="col-6">
+													<button type="submit"
+														class="btn btn-success btn-block">Agregar</button>
+												</div>
+											</div>
 										</div>
 									</form>
 								</div>
@@ -621,25 +635,29 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="./php/controlador/modificarPaciente.php" method="POST" id="editarPacienteForm">
+									<form action="./php/controlador/modificarPaciente.php" method="POST"
+										id="editarPacienteForm">
 										<div class="row">
 											<div class="col-md-6 d-none">
 												<div class="form-group">
 													<label>ID:</label>
-													<input type="text" class="form-control" id="inputID" name="idPaciente" readonly>
+													<input type="text" class="form-control" id="inputID"
+														name="idPaciente" readonly>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nombre:</label>
-													<input type="text" class="form-control" id="inputNombre" name="nombre">
+													<input type="text" class="form-control" id="inputNombre"
+														name="nombre">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Apellido Paterno:</label>
-													<input type="text" class="form-control" id="inputApellidoPaterno" name="apellido_paterno">
+													<input type="text" class="form-control" id="inputApellidoPaterno"
+														name="apellido_paterno">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -650,14 +668,16 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Apellido Materno:</label>
-													<input type="text" class="form-control" id="inputApellidoMaterno" name="apellido_materno">
+													<input type="text" class="form-control" id="inputApellidoMaterno"
+														name="apellido_materno">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Fecha de Nacimiento:</label>
-													<input type="date" class="form-control" id="inputFechaNacimiento" name="fecha_nacimiento">
+													<input type="date" class="form-control" id="inputFechaNacimiento"
+														name="fecha_nacimiento">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -668,14 +688,16 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Tipo de Sangre:</label>
-													<input type="text" class="form-control" id="inputTipoSangre" name="tipo_sangre">
+													<input type="text" class="form-control" id="inputTipoSangre"
+														name="tipo_sangre">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Teléfono:</label>
-													<input type="text" class="form-control" id="inputTelefono" name="telefono">
+													<input type="text" class="form-control" id="inputTelefono"
+														name="telefono">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -693,7 +715,8 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Tipo de Paciente:</label>
-													<select class="form-control" id="inputTipoPaciente" name="tipo_paciente">
+													<select class="form-control" id="inputTipoPaciente"
+														name="tipo_paciente">
 														<option value="0">Selecciona opcion ...</option>
 														<option value="normal">Normal</option>
 														<option value="frecuente">Frecuente</option>
@@ -712,16 +735,25 @@
 												<div class="form-group">
 													<div class="form-group">
 														<label>Correo:</label>
-														<input type="email" class="form-control" id="inputCorreo" name="correo">
+														<input type="email" class="form-control" id="inputCorreo"
+															name="correo">
 														<span class="errorModificar text-danger"></span>
 													</div>
 												</div>
 											</div>
 										</div>
 
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-											<button type="submit" class="btn btn-warning">Guardar Cambios</button>
+										<div class="text-center mt-3">
+											<div class="row">
+												<div class="col-6">
+													<button type="button" class="btn btn-secondary btn-block"
+														data-dismiss="modal">Cancelar</button>
+												</div>
+												<div class="col-6">
+													<button type="submit"
+														class="btn btn-warning btn-block">Cambiar</button>
+												</div>
+											</div>
 										</div>
 									</form>
 								</div>
@@ -750,11 +782,29 @@
 									</p>
 								</div>
 
-								<div class="modal-footer">
-									<form id="eliminarPacienteForm" action="./php/controlador/eliminarPaciente.php" method="POST">
-										<input type="text" id="inputIdPacienteDelete" name="id_paciente" value="" style="display: none;">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-										<button type="submit" class="btn btn-danger">Eliminar</button>
+								<div class="text-center pb-1 m-3">
+									<form id="eliminarPacienteForm" action="./php/controlador/eliminarPaciente.php"
+										method="POST">
+										<input type="text" id="inputIdPacienteDelete" name="id_paciente" value=""
+											style="display: none;">
+
+
+
+
+
+
+										<div class="text-center mt-3">
+											<div class="row">
+												<div class="col-6">
+													<button type="button" class="btn btn-secondary btn-block"
+														data-dismiss="modal">Cancel</button>
+												</div>
+												<div class="col-6">
+													<button type="submit"
+														class="btn btn-danger btn-block">Eliminar</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -825,7 +875,8 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Agregar</button>
 								</div>
 							</div>
@@ -880,7 +931,8 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Guardar Cambios</button>
 								</div>
 							</div>
@@ -989,7 +1041,8 @@
 
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Agregar</button>
 								</div>
 							</div>
@@ -1086,7 +1139,8 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Cancelar</button>
 									<button type="button" class="btn btn-success">Guardar Cambios</button>
 								</div>
 							</div>
@@ -1132,60 +1186,46 @@
 	<!------main-content-end----------->
 
 	<?php
-	// Verificar si hay un mensaje y mostrar iziToast según el tipo de mensaje
 	if (isset($_GET['mensaje'])) {
 		$tipoMensaje = $_GET['mensaje'];
+		$titulo = "";
+		$mensaje = "";
+		$backgroundColor = ""; // Variable para el color de fondo
+	
 		if ($tipoMensaje == 1) {
-			echo '<script>
-                    iziToast.success({
-                        title: "Éxito",
-                        message: "El paciente se agregó correctamente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
-		} elseif ($tipoMensaje == 0) {
-			echo '<script>
-                    iziToast.error({
-                        title: "Error",
-                        message: "No se pudo agregar el paciente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
+			$titulo = "Éxito";
+			$mensaje = "El paciente se agregó correctamente.";
+			$backgroundColor = "#8bcef7"; // Azul grisáceo oscuro para altas
 		} elseif ($tipoMensaje == 3) {
-			echo '<script>
-                    iziToast.success({
-                        title: "Éxito",
-                        message: "El paciente se modificó correctamente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
-		} elseif ($tipoMensaje == 4) {
-			echo '<script>
-                    iziToast.error({
-                        title: "Error",
-                        message: "No se pudo modificar el paciente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
+			$titulo = "Éxito";
+			$mensaje = "El paciente se modificó correctamente.";
+			$backgroundColor = "#faef57"; // Amarillo grisáceo oscuro para modificaciones
 		} elseif ($tipoMensaje == 5) {
-			echo '<script>
-                    iziToast.success({
-                        title: "Éxito",
-                        message: "El paciente se eliminó correctamente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
-		} elseif ($tipoMensaje == 6) {
-			echo '<script>
-                    iziToast.error({
-                        title: "Error",
-                        message: "No se pudo eliminar el paciente.",
-                        position: "bottomRight"
-                    });
-                  </script>';
+			$titulo = "Éxito";
+			$mensaje = "El paciente se eliminó correctamente.";
+			$backgroundColor = "#ffa59c"; // Rojo grisáceo oscuro para bajas
+		} elseif ($tipoMensaje == 0 || $tipoMensaje == 4 || $tipoMensaje == 6) {
+			$titulo = "Error";
+			$mensaje = "Ocurrió un error al procesar la solicitud.";
+			$backgroundColor = "#ffa59c";
 		}
+
+		echo '<script>
+                iziToast.show({
+                    title: "' . $titulo . '",
+                    message: "' . $mensaje . '",
+                    position: "bottomRight",
+                    backgroundColor: "' . $backgroundColor . '",
+                    titleColor: "#303030",
+                    messageColor: "#303030",
+                    iconColor: "#ffffff"
+                });
+              </script>';
 	}
 	?>
+
+
+
 
 
 
@@ -1249,7 +1289,7 @@
 		const resultadoBusqueda = document.getElementById('resultadoBusqueda');
 
 		// Maneja el evento de envío del formulario
-		searchForm.addEventListener('submit', function(event) {
+		searchForm.addEventListener('submit', function (event) {
 			event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
 			// Obtiene el valor del input de búsqueda

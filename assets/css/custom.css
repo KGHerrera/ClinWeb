@@ -2,7 +2,7 @@ body,
 html {
 	line-height: 1.8;
 	font-family: 'Poppins', sans-serif;
-	color: #555e58;
+	color: #cfcfcf;
 	text-transform: capitalize;
 	font-weight: 400;
 	margin: 0px;
@@ -252,7 +252,7 @@ a:focus {
 	position: relative;
 	font-weight: 400;
 	display: block;
-	color: #777777;
+	color: #acabab;
 	text-transform: capitalize;
 }
 
@@ -383,7 +383,6 @@ input[type="search"] {
 .navbar-nav>li.active {
 	color: #fff;
 	border-radius: 4px;
-	background-color: rgba(0, 0, 0, 0.08);
 }
 
 .navbar-nav>li>a {
