@@ -43,6 +43,7 @@
 			background-color: var(--darker-color);
 			box-shadow: none !important;
 			/* Cambia esto al color de fondo deseado */
+			min-height: 100vh;
 		}
 
 		/* Cambiar el color del texto del menú */
@@ -118,7 +119,7 @@
 		.modal-header,
 		.modal-footer,
 		.modal-content {
-			background-color: var(--darker-color) !important;
+			background-color: var(--top-navbar-color) !important;
 			color: white;
 			border: none;
 		}
@@ -167,7 +168,7 @@
 
 </head>
 
-<body>
+<body style="min-height: 100vh;">
 	<div class="wrapper">
 
 		<div class="body-overlay"></div>

@@ -1,433 +1,256 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WebClin</title>
-    <meta name="description" content="Knight is a beautiful Bootstrap 4 template for product landing pages." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!--Inter UI font-->
-    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
-    <!--vendors styles-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-
-    <!-- Bootstrap CSS / Color Scheme -->
-    <link rel="stylesheet" href="assets/css/default.css" id="theme-color">
 </head>
 
 <body>
 
-    <!--navigation-->
-    <section class="smart-scroll bg-dark">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-dark">
-                <a class="navbar-brand heading-black" href="index.html">
+    <div class="container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                     WebClin
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span data-feather="grid"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#features">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#pricing">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#faq">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="registro.html">Registrarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary"
-                                href="login.html">
-                                <em data-feather="layout" width="18" height="18" class="mr-2"></em>
-                                Iniciar Sesión
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </section>
+            </div>
 
-    <!--hero header-->
-    <section class="py-7 py-md-0 bg-hero" id="home">
-        <div class="container">
-            <div class="row vh-md-100">
-                <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
-                    <h1 class="heading-black text-capitalize">Salud en el Corazón del Campo</h1>
-                    <p class="lead py-3"> Nuestra Clínica Rural "Salud en el Corazón del Campo" es un refugio de
-                        atención médica dedicado a servir a las comunidades rurales con un enfoque
-                        cálido y personalizado.</p>
-                    <a href="registro.html">
-                        <button class="btn btn-primary d-inline-flex flex-row align-items-center">
-                            Registrarse
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Publicaciones</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Acerca de</a></li>
+            </ul>
 
-    <!-- features section -->
-    <section class="pt-6 pb-7" id="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <h2 class="heading-black">Clinica Bienestar siempre al servicio de la comunidad.</h2>
-                    <p class="text-muted lead">En el corazón de nuestro apacible pueblo, rodeado de campos
-                        verdes y montañas majestuosas, se encuentra la Clínica Rural San Martín. Fundada hace
-                        más de tres décadas, nuestra clínica ha sido un faro de esperanza y atención médica para
-                        la comunidad rural de San Martín y sus alrededores.</p>
-                </div>
+            <div>
+                <a href="login.html" type="button" class="btn btn-outline-primary me-2">Iniciar sesión</a>
+                <a href="registro.html" type="button" class="btn btn-outline-light">Registrarse</a>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-10 mx-auto">
-                    <div class="row feature-boxes">
-                        <div class="col-md-6 box">
-                            <div class="icon-box box-primary">
-                                <div class="icon-box-inner">
-                                    <span data-feather="edit-3" width="35" height="35"></span>
-                                </div>
-                            </div>
-                            <h5>Realiza citas gratis infinitas</h5>
-                            <p class="text-muted">Con nuestro servicio de 'Realizar
-                                Citas Infinitas', hemos simplificado y agilizado el proceso de programación de citas
-                                médicas.</p>
-                        </div>
-                        <div class="col-md-6 box">
-                            <div class="icon-box box-success">
-                                <div class="icon-box-inner">
-                                    <span data-feather="monitor" width="35" height="35"></span>
-                                </div>
-                            </div>
-                            <h5>Desde cualquier dispositivo</h5>
-                            <p class="text-muted">Accede a nuestro sitio desde cualquier dispositivo: ¡Facilidad y
-                                comodidad en tus manos!</p>
-                        </div>
-                        <div class="col-md-6 box">
-                            <div class="icon-box box-danger">
-                                <div class="icon-box-inner">
-                                    <span data-feather="layout" width="35" height="35"></span>
-                                </div>
-                            </div>
-                            <h5>Bonitas instalaciones</h5>
-                            <p class="text-muted">Descubre nuestras bonitas instalaciones: un entorno acogedor y moderno
-                                para tu bienestar.</p>
-                        </div>
-                        <div class="col-md-6 box">
-                            <div class="icon-box box-info">
-                                <div class="icon-box-inner">
-                                    <span data-feather="globe" width="35" height="35"></span>
-                                </div>
-                            </div>
-                            <h5>Visitanos desde cualquier lugar</h5>
-                            <p class="text-muted">¡Visítanos desde cualquier lugar! Tu salud es nuestra prioridad, estés
-                                donde estés</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-6">
-                <div class="col-md-6 mr-auto">
-                    <h2>Clínica Bienestar no es solo una clínica, es una familia dedicada a tu salud y bienestar.</h2>
-                    <p class="mb-5">En Clínica Bienestar, nuestra filosofía va más allá de ser simplemente un centro de
-                        salud. Somos una familia comprometida con tu bienestar integral.</p>
-                    <a href="#" class="btn btn-light">
-                        Registrate (que estas esperando)
-                    </a>
-                </div>
-                <div class="col-md-5 mt-6">
-                    <div class="slick-about">
-                        <img src="assets/img/blog-1.jpg" class="img-fluid rounded d-block mx-auto" alt="Work 1" />
-                        <img src="assets/img/blog-2.jpg" class="img-fluid rounded d-block mx-auto" alt="Work 2" />
-                        <img src="assets/img/blog-3.jpg" class="img-fluid rounded d-block mx-auto" alt="Work 3" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--pricing section-->
-    <section class="py-7 bg-dark section-angle top-right bottom-right" id="pricing">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <h2 class="text-white heading-black">Elige algunas de nuestras citas medicas</h2>
-                    <p class="text-light lead">Totalmente gratis</p>
-                </div>
-            </div>
-            <!--pricing tables-->
-            <div class="row pt-5 pricing-table">
-                <div class="col-12 mx-auto">
-                    <div class="card-deck pricing-table">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title pt-3">Personal</h3>
-                                <h2 class="card-title text-primary mb-0 pt-4">$0</h2>
-                                <div class="text-muted font-weight-medium mt-2">por mes</div>
-                                <ul class="list-unstyled pricing-list">
-                                    <li>1 paciente</li>
-                                    <li>10 amigos</li>
-                                    <li>Acceso premium a la clinica</li>
-                                    <li>Atención increiblemente buena</li>
-                                </ul>
-                                <a href="#" class="btn btn-primary">
-                                    Iniciar Sesión
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title pt-3">Agencia</h3>
-                                <h2 class="card-title text-info mb-0 pt-4">$0</h2>
-                                <div class="text-muted font-weight-medium mt-2">Gratuita</div>
-                                <ul class="list-unstyled pricing-list">
-                                    <li>1-5 familiares</li>
-                                    <li>50 compañeros</li>
-                                    <li>Acceso al quirofano</li>
-                                    <li>Prioridad de atención</li>
-                                </ul>
-                                <a href="#" class="btn btn-info">
-                                    Registrate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-6">
-                <div class="col-md-4 mr-auto">
-                    <h3>Todo esta cubierto</h3>
-                    <p class="lead">
-                        odos nuestros servicios médicos están completamente cubiertos por el seguro social, garantizando
-                        que recibas la atención que necesitas sin preocuparte por costos adicionales.
-                    </p>
-                </div>
-                <div class="col-md-7 offset-md-1">
-                    <ul class="features-list">
-                        <li>Acceso semanal</li>
-                        <li>Acceso a medicamentos</li>
-                        <li>Integración con similares</li>
-                        <li>Integración con farmacia GP</li>
-                        <li>100 de satisfacción</li>
-                        <li>Sin costos</li>
-                        <li>Citas ilimitadas</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
-                    <h3>Intenta realizar una cita gratis durante toda la vida</h3>
-                    <p class="mb-4">¡Inténtalo! Realiza una cita gratis durante toda la vida. En Clínica Bienestar, te
-                        ofrecemos la oportunidad de programar tus consultas médicas sin costo alguno.</p>
-                    <button class="btn btn-primary">
-                        Crear una cuenta
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--faq section-->
-    <section class="py-7" id="faq">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <h2>Preguntas frecuentes</h2>
-                    <p class="text-muted lead">Respuestas a preguntas que siempre hacen</p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-10 mx-auto">
-                    <div class="row">
-                        <div class="col-md-6 mb-5">
-                            <h6>Es gratis?</h6>
-                            <p class="text-muted">Claro!! ya lo mencionamos unas cuantas miles de veces.</p>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <h6>Tienen tarifas ocultas?</h6>
-                            <p class="text-muted">Si unas tarifas de unos 1200 pesos semanales, no te creas es mentira
-                                si es gratis!!!</p>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <h6>Cuales terminos de pago aceptan?</h6>
-                            <p class="text-muted">Aceptamos tarjeta, efectivo, vales de despenza, canicas, trueques,
-                                cacao, bueno no ya digimos que es gratis!!.</p>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <h6>Que tan seguido realizan actualizaciones al sitio?</h6>
-                            <p class="text-muted">Cada que tengo tiempo, las actualizaciones terminan en diciembre o eso
-                                espero!.</p>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <h6>Cuales son sus politicas?</h6>
-                            <p class="text-muted">Garantizamos la confidencialidad total de tus registros médicos y
-                                datos personales, protegiendo tu privacidad en todo momento.</p>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <h6>Como podemos contactarnos?</h6>
-                            <p class="text-muted">A traves de correo electronico, citas personales a la clinica.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-6 mx-auto text-center">
-                    <h5 class="mb-4">Tienes mas preguntas?</h5>
-                    <a href="#" class="btn btn-primary">Contactanos</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--news section-->
-    <section class="py-7 bg-dark section-angle top-left bottom-left" id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <h2 class="heading-black">Noticias sobre la Clinica Bienestar.</h2>
-                    <p class="text-muted lead">Que es lo mas nuevo de WebClin.</p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-4 mt-5">
-                    <div class="card">
-                        <a href="#">
-                            <img class="card-img-top img-raised" src="assets/img/blog-1.jpg" alt="Blog 1">
-                        </a>
-                        <div class="card-body">
-                            <a href="#" class="card-title mb-2">
-                                <h5>Lanzaremos una version para dispositivos moviles (WIP)</h5>
-                            </a>
-                            <p class="text-muted small-xl mb-2">Dec 01, 2023</p>
-                            <p class="card-text">¡Emocionantes noticias! Pronto lanzaremos una versión móvil de nuestra
-                                plataforma. Esto significa que podrás acceder a nuestros servicios y programar citas
-                                desde tu dispositivo móvil en cualquier momento y lugar. <a href="#">Saber mas</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5">
-                    <div class="card">
-                        <a href="#">
-                            <img class="card-img-top img-raised" src="assets/img/blog-2.jpg" alt="Blog 2">
-                        </a>
-                        <div class="card-body">
-                            <a href="#" class="card-title mb-2">
-                                <h5>Mejora en las instalaciones</h5>
-                            </a>
-                            <p class="text-muted small-xl mb-2">August 16, 2018</p>
-                            <p class="card-text">En Clínica Bienestar, estamos comprometidos con la mejora continua de
-                                nuestras instalaciones. Constantemente invertimos en la modernización y actualización de
-                                nuestro entorno para proporcionarte un ambiente aún más acogedor y cómodo. <a
-                                    href="#">Saber mas</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5">
-                    <div class="card">
-                        <a href="#">
-                            <img class="card-img-top img-raised" src="assets/img/blog-3.jpg" alt="Blog 3">
-                        </a>
-                        <div class="card-body">
-                            <a href="#" class="card-title mb-2">
-                                <h5>El primer paciente de nuestros servicios de salud</h5>
-                            </a>
-                            <p class="text-muted small-xl mb-2">December 2nd, 2017</p>
-                            <p class="card-text">El primer paciente que confió en Clínica Bienestar marcó el comienzo de
-                                nuestro compromiso con la atención médica excepcional. Desde entonces, hemos aprendido y
-                                crecido juntos. <a href="#">Learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-6">
-                <div class="col-md-6 mx-auto text-center">
-                    <a href="#" class="btn btn-primary">Ver todos los posts</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--footer-->
-    <footer class="py-6">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 mr-auto">
-                    <h5>Sobre Clinica Bienestar</h5>
-                    <p class="text-muted">En el corazón de nuestro apacible pueblo, rodeado de campos
-                        verdes y montañas majestuosas, se encuentra la Clínica Rural San Martín. Fundada hace
-                        más de tres décadas, nuestra clínica ha sido un faro de esperanza y atención médica para
-                        la comunidad rural de San Martín y sus alrededores.</p>
-                    <ul class="list-inline social social-sm">
-                        <li class="list-inline-item">
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href=""><i class="fa fa-dribbble"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Privacidad</a></li>
-                        <li><a href="#">Terminos y condiciones</a></li>
-                        <li><a href="#">Politica</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Amistad</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Compartir con amigos</a></li>
-                        <li><a href="#">Afiliados</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Ayuda</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Soporte</a></li>
-                        <li><a href="#">Iniciar Sesión</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12 text-muted text-center small-xl">
-                    &copy; 2023 Clinica Bienestar - Todos los derechos e izquierdos reservados
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!--scroll to top-->
-    <div class="scroll-top">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </header>
     </div>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold text-body-emphasis">Clínica Bienestar</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Bienvenido a Clínica Bienestar, donde nos dedicamos a proporcionar atención médica de
+                calidad
+                con un enfoque cálido y personalizado. Nuestro equipo de profesionales está comprometido en servir a las
+                comunidades con cuidado y compasión.</p>
+
+        </div>
+        <div class="overflow-hidden" style="max-height: 65vh;">
+            <div class="container px-5">
+                <img src="assets/img/back.jpg" class="img-fluid border rounded-3 shadow-lg mb-4"
+                    alt="Imagen de la clínica" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Nuestros Servicios</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Consulta General</h3>
+                    <p>Ofrecemos servicios de consulta general para atender diversas necesidades de salud en todas las
+                        etapas de la vida. Nuestros médicos están dedicados a proporcionar atención compasiva y
+                        personalizada.</p>
+                    <a href="#" class="btn btn-primary">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Dentista</h3>
+                    <p>Nuestros dentistas altamente capacitados ofrecen servicios dentales de calidad, desde limpiezas
+                        regulares hasta procedimientos más complejos. Nos esforzamos por mantener tu sonrisa sana y
+                        hermosa.</p>
+                    <a href="#" class="btn btn-primary">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Laboratorio</h3>
+                    <p>Nuestro laboratorio cuenta con tecnología avanzada para análisis precisos y confiables.
+                        Trabajamos diligentemente para proporcionar resultados de laboratorio rápidos y precisos para
+                        ayudar en tu diagnóstico y tratamiento.</p>
+                    <a href="#" class="btn btn-primary">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://picsum.photos/700/500" class="d-block mx-lg-auto img-fluid" alt="Clinica Image"
+                    width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Bienvenido a Nuestra Clínica</h1>
+                <p class="lead">En Nuestra Clínica Rural "Bienestar", nos dedicamos a ofrecer atención médica cálida y
+                    personalizada a las comunidades rurales. Nuestro equipo de profesionales altamente capacitados se
+                    esfuerza por brindar servicios de calidad para mejorar la salud y el bienestar de nuestros
+                    pacientes.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Conoce Más</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Contáctanos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Contáctanos</h1>
+                <p class="col-lg-10 fs-4">Si tienes alguna pregunta o necesitas ponerte en contacto con nosotros, por
+                    favor completa el formulario a continuación.</p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingName" placeholder="Nombre">
+                        <label for="floatingName">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingEmail" placeholder="Correo Electrónico">
+                        <label for="floatingEmail">Correo Electrónico</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="floatingMessage" placeholder="Mensaje"></textarea>
+                        <label for="floatingMessage">Mensaje</label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container my-5">
+        <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+            <button type="button"
+                class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill"
+                aria-label="Close"></button>
+            <svg class="bi mt-5 mb-3" width="48" height="48">
+                <use xlink:href="#heart-fill"></use>
+            </svg>
+            <h1 class="text-body-emphasis">Bienvenido a Nuestra Clínica</h1>
+            <p class="col-lg-6 mx-auto mb-4">
+                Este jumbotron es perfecto para presentar nuestra clínica y los servicios que ofrecemos. Nuestro equipo
+                está comprometido en proporcionar atención médica de calidad y servicios personalizados a las
+                comunidades
+                rurales.
+            </p>
+            <button class="btn btn-primary px-5 mb-5" type="button">
+                ¡Conoce nuestros servicios!
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-5">
+        <footer class="py-5 px-4">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Sección</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link p-0 text-body-secondary">Características</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Precios</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Preguntas
+                                frecuentes</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Acerca de</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Sección</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link p-0 text-body-secondary">Características</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Precios</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Preguntas
+                                frecuentes</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Acerca de</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Sección</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link p-0 text-body-secondary">Características</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Precios</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Preguntas
+                                frecuentes</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Acerca de</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Suscríbete a nuestro boletín</h5>
+                        <p>Resumen mensual de las novedades y emocionantes noticias de nosotros.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Correo electrónico</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Correo electrónico">
+                            <button class="btn btn-primary" type="button">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>© 2023 Compañía, Inc. Todos los derechos reservados.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook"></use>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+
 </body>
 
 </html>
