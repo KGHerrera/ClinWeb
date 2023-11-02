@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ClinWeb</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -16,49 +16,133 @@
 
 <body>
 
-    <div class="container">
+    <div class="container sticky-top bg-dark">
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    WebClin
+                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none fw-bold"
+                    style="color:#5ec4fb !important">
+                    WEBCLIN
                 </a>
             </div>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Publicaciones</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Acerca de</a></li>
+                <li><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
+                <li><a href="#" class="nav-link px-2 text-muted">Publicaciones</a></li>
+                <li><a href="#" class="nav-link px-2 text-muted">Acerca de</a></li>
             </ul>
 
             <div>
-                <a href="login.html" type="button" class="btn btn-outline-primary me-2">Iniciar sesión</a>
+                <a href="login.html" type="button" class="btn btn-outline-warning me-2">Iniciar sesión</a>
                 <a href="registro.html" type="button" class="btn btn-outline-light">Registrarse</a>
             </div>
         </header>
     </div>
 
-
-    <div class="px-4 pt-5 my-5 text-center border-bottom">
-        <h1 class="display-4 fw-bold text-body-emphasis">Clínica Bienestar</h1>
+    <div class="px-4 pt-5 my-5 text-center">
+        <h1 class="display-4 fw-bold text-body-emphasis">Clinica Bienestar</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Bienvenido a Clínica Bienestar, donde nos dedicamos a proporcionar atención médica de
-                calidad
-                con un enfoque cálido y personalizado. Nuestro equipo de profesionales está comprometido en servir a las
-                comunidades con cuidado y compasión.</p>
+            <p class="mb-4">En Nuestra Clínica Rural "Bienestar", nos dedicamos a ofrecer atención médica cálida y
+                personalizada a las comunidades rurales. Nuestro equipo de profesionales altamente capacitados se
+                esfuerza por brindar servicios de calidad para mejorar la salud y el bienestar de nuestros
+                pacientes.</p>
 
         </div>
-        <div class="overflow-hidden" style="max-height: 65vh;">
-            <div class="container px-5">
-                <img src="assets/img/back.jpg" class="img-fluid border rounded-3 shadow-lg mb-4"
-                    alt="Imagen de la clínica" loading="lazy">
+        <div class="overflow-hidden" style="max-height: 80vh;">
+            <div class="container">
+                <img src="assets/img/back.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                     loading="lazy">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="container py-5 px-4">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary-emphasis">Salud</strong>
+                        <h3 class="mb-0">Artículo destacado</h3>
+                        <div class="mb-1 text-body-secondary">Nov 12</div>
+                        <p class="card-text mb-auto">Este es un artículo amplio con texto de soporte debajo como una
+                            introducción natural a contenido adicional.</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                            Seguir leyendo
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em"></text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Bienestar</strong>
+                        <h3 class="mb-0">Título del artículo</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">Este es un artículo amplio con texto de soporte debajo como una introducción
+                            natural a contenido adicional.</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                            Seguir leyendo
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em"></text>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 
+    <div class="container px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="assets/img/back.jpg" class="d-block mx-lg-auto img-fluid" alt="Clinica Image" width="700"
+                    height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Bienvenido a Nuestra Clínica</h1>
+                <p>En Nuestra Clínica Rural "Bienestar", nos dedicamos a ofrecer atención médica cálida y
+                    personalizada a las comunidades rurales. Nuestro equipo de profesionales altamente capacitados se
+                    esfuerza por brindar servicios de calidad para mejorar la salud y el bienestar de nuestros
+                    pacientes.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn btn-outline-warning px-4 me-md-2">Conoce Más</button>
+                    <button type="button" class="btn btn-outline-secondary px-4">Contáctanos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="container px-4 py-5" id="hanging-icons">
-        <h2 class="pb-2 border-bottom">Nuestros Servicios</h2>
+        <h2 class="pb-2">Nuestros Servicios</h2>
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
             <div class="col d-flex align-items-start">
 
@@ -67,7 +151,7 @@
                     <p>Ofrecemos servicios de consulta general para atender diversas necesidades de salud en todas las
                         etapas de la vida. Nuestros médicos están dedicados a proporcionar atención compasiva y
                         personalizada.</p>
-                    <a href="#" class="btn btn-primary">
+                    <a href="#" class="text-muted">
                         Saber más
                     </a>
                 </div>
@@ -79,7 +163,7 @@
                     <p>Nuestros dentistas altamente capacitados ofrecen servicios dentales de calidad, desde limpiezas
                         regulares hasta procedimientos más complejos. Nos esforzamos por mantener tu sonrisa sana y
                         hermosa.</p>
-                    <a href="#" class="btn btn-primary">
+                    <a href="#" class="text-muted">
                         Saber más
                     </a>
                 </div>
@@ -91,7 +175,7 @@
                     <p>Nuestro laboratorio cuenta con tecnología avanzada para análisis precisos y confiables.
                         Trabajamos diligentemente para proporcionar resultados de laboratorio rápidos y precisos para
                         ayudar en tu diagnóstico y tratamiento.</p>
-                    <a href="#" class="btn btn-primary">
+                    <a href="#" class="text-muted">
                         Saber más
                     </a>
                 </div>
@@ -99,83 +183,82 @@
         </div>
     </div>
 
-
-
-
     <div class="container px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="https://picsum.photos/700/500" class="d-block mx-lg-auto img-fluid" alt="Clinica Image"
-                    width="700" height="500" loading="lazy">
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">Tarifas</h1>
+            <p class="fs-5 text-body-secondary">Crea rápidamente una tabla de precios efectiva para tus potenciales
+                clientes
+                con este ejemplo de Bootstrap. Está construido con componentes y utilidades predeterminados de Bootstrap
+                con
+                poca personalización.</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Básico</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Gratis<small
+                                class="text-body-secondary fw-light">/mes</small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Consulta general</li>
+                            <li>2 consultas</li>
+                            <li>Soporte por correo electrónico</li>
+                            <li>Acceso al centro de ayuda</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-light">Registrarse gratis</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Bienvenido a Nuestra Clínica</h1>
-                <p class="lead">En Nuestra Clínica Rural "Bienestar", nos dedicamos a ofrecer atención médica cálida y
-                    personalizada a las comunidades rurales. Nuestro equipo de profesionales altamente capacitados se
-                    esfuerza por brindar servicios de calidad para mejorar la salud y el bienestar de nuestros
-                    pacientes.</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Conoce Más</button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Contáctanos</button>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Premium</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$15<small
+                                class="text-body-secondary fw-light">/mes</small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Consulta especializada</li>
+                            <li>10 consultas</li>
+                            <li>Soporte prioritario por correo electrónico</li>
+                            <li>Acceso al centro de ayuda</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-light">Empezar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Corporativo</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$29<small
+                                class="text-body-secondary fw-light">/mes</small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Consulta VIP</li>
+                            <li>15 consultas</li>
+                            <li>Soporte telefónico y por correo electrónico</li>
+                            <li>Acceso al centro de ayuda</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-light">Contáctenos</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Contáctanos</h1>
-                <p class="col-lg-10 fs-4">Si tienes alguna pregunta o necesitas ponerte en contacto con nosotros, por
-                    favor completa el formulario a continuación.</p>
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingName" placeholder="Nombre">
-                        <label for="floatingName">Nombre</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingEmail" placeholder="Correo Electrónico">
-                        <label for="floatingEmail">Correo Electrónico</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" id="floatingMessage" placeholder="Mensaje"></textarea>
-                        <label for="floatingMessage">Mensaje</label>
-                    </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
 
-
-    <div class="container my-5">
-        <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
-            <button type="button"
-                class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill"
-                aria-label="Close"></button>
-            <svg class="bi mt-5 mb-3" width="48" height="48">
-                <use xlink:href="#heart-fill"></use>
-            </svg>
-            <h1 class="text-body-emphasis">Bienvenido a Nuestra Clínica</h1>
-            <p class="col-lg-6 mx-auto mb-4">
-                Este jumbotron es perfecto para presentar nuestra clínica y los servicios que ofrecemos. Nuestro equipo
-                está comprometido en proporcionar atención médica de calidad y servicios personalizados a las
-                comunidades
-                rurales.
-            </p>
-            <button class="btn btn-primary px-5 mb-5" type="button">
-                ¡Conoce nuestros servicios!
-            </button>
-        </div>
-    </div>
-
-
-
-    <div class="container mt-5">
+    <div class="container mt-5 border-top">
         <footer class="py-5 px-4">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
@@ -233,7 +316,7 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4">
                 <p>© 2023 Compañía, Inc. Todos los derechos reservados.</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">

@@ -1,0 +1,41 @@
+:root {
+    --top-navbar-color: #212529;
+    --darker-color: #1c1e21;
+    --lighter-color: #343a40;
+    --accent-color: #0cc2c2;
+    --active-link-color: #dc3545;
+    --success-button-color: #198754;
+}
+
+.gradient-custom-2 {
+    background: #1641a6;
+}
+
+.custom-form {
+    background-color: var(--darker-color);
+    color: white;
+}
+
+.custom-form label {
+    color: var(--lighter-color);
+}
+
+.custom-form input[type="email"],
+.custom-form input[type="password"] {
+    background-color: var(--lighter-color);
+    color: white;
+}
+
+.custom-form .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.custom-form .btn-primary:hover {
+    background-color: darken(var(--accent-color), 10%);
+    border-color: darken(var(--accent-color), 10%);
+}
+
+.custom-form a {
+    color: var(--active-link-color);
+}

@@ -33,7 +33,7 @@
 			--top-navbar-color: #212529;
 			--darker-color: #1c1e21;
 			--lighter-color: #343a40;
-			--accent-color: #0cc2c2;
+			--accent-color: #5ec4fb;
 			--active-link-color: #dc3545;
 			--success-button-color: #198754;
 		}
@@ -150,7 +150,6 @@
 
 		thead>tr>th {
 			color: var(--accent-color) !important;
-			font-weight: 800 !important;
 		}
 
 		thead {
