@@ -33,8 +33,8 @@
             </ul>
 
             <div>
-                <a href="login.html" type="button" class="btn btn-outline-warning me-2">Iniciar sesión</a>
-                <a href="registro.html" type="button" class="btn btn-outline-light">Registrarse</a>
+                <a href="login.php" type="button" class="btn btn-outline-warning me-2">Iniciar sesión</a>
+                <a href="registro.php" type="button" class="btn btn-outline-light">Registrarse</a>
             </div>
         </header>
     </div>
@@ -51,7 +51,7 @@
         <div class="overflow-hidden" style="max-height: 80vh;">
             <div class="container">
                 <img src="assets/img/back.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                     loading="lazy">
+                    loading="lazy">
             </div>
         </div>
 

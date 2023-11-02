@@ -14,6 +14,9 @@
 
     <link rel="stylesheet" href="assets/css/form.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+
 
 </head>
 
@@ -30,7 +33,7 @@
 
                                     <div class="text-center">
 
-                                        <h4 class="mt-1 mb-5 pb-1">Bienvenido a <a href="index.html"> WebClin</a></h4>
+                                        <h4 class="mt-1 mb-5 pb-1">Bienvenido a <a href="index.php"> WebClin</a></h4>
                                     </div>
 
                                     <form>
@@ -45,7 +48,7 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example22">Contraseña</label>
-                                            <input type="password" placeholder="contraseña encriptada"
+                                            <input type="password" placeholder="contraseña"
                                                 id="form2Example22" class="form-control" />
                                         </div>
 
@@ -53,13 +56,13 @@
                                             <a class="btn btn-primary btn-block fa-lg mb-3 col-12" href="crud.php"
                                                 type="button">INICIAR SESION</button>
                                                 <a>
-                                                    <a class="text-muted" href="restablecer_password.html">Olvidaste tu
+                                                    <a class="text-muted" href="restablecer_password.php">Olvidaste tu
                                                         contraseña?</a>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">No tienes una cuenta?</p>
-                                            <a class="text-muted" style="cursor:pointer" href="registro.html">crear
+                                            <a class="text-muted" style="cursor:pointer" href="registro.php">crear
                                                 cuenta</a>
                                         </div>
 
@@ -85,6 +88,33 @@
             </div>
         </div>
     </section>
+
+    <?php
+    if (isset($_GET['mensaje'])) {
+        $tipoMensaje = $_GET['mensaje'];
+        $titulo = "";
+        $mensaje = "";
+        $backgroundColor = ""; // Variable para el color de fondo
+    
+        if ($tipoMensaje == 2) {
+            $titulo = "Éxito";
+            $mensaje = "Usuario registrado correctamente. INICIA SESION";
+            $backgroundColor = "#8bcef7"; 
+        } 
+
+        echo '<script>
+                iziToast.show({
+                    title: "' . $titulo . '",
+                    message: "' . $mensaje . '",
+                    position: "bottomRight",
+                    backgroundColor: "' . $backgroundColor . '",
+                    titleColor: "#303030",
+                    messageColor: "#303030",
+                    iconColor: "#ffffff"
+                });
+              </script>';
+    }
+    ?>
 
 </body>
 

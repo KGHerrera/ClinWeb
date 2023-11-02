@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="assets/css/form.css">
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+
+
 </head>
 
 <body style="height: 100vh; background-color: #15171a;">
@@ -30,33 +34,33 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-4 pb-1">Registro en <a href="index.html"> WebClin</a></h4>
+                                        <h4 class="mt-1 mb-4 pb-1">Registro en <a href="index.php"> WebClin</a></h4>
                                     </div>
 
-                                    <form>
+                                    <form method="POST" action="php/controlador/agregarUsuario.php">
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="fullName">Nombre Completo</label>
-                                            <input type="text" id="fullName" class="form-control"
-                                                placeholder="Ingrese su nombre completo" required />
+                                            <label class="form-label" for="nombre">Nombre Completo</label>
+                                            <input type="text" id="nombre" name="nombre" class="form-control"
+                                                placeholder="Ingrese su nombre completo" />
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example11">Usuario</label>
-                                            <input type="email" id="form2Example11" class="form-control"
-                                                placeholder="Ingrese su correo electronico" required />
+                                            <label class="form-label" for="usuario">Usuario</label>
+                                            <input type="email" id="usuario" name="usuario" class="form-control"
+                                                placeholder="Ingrese su correo electronico" />
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="password">Contraseña</label>
-                                            <input type="password" id="password" class="form-control"
-                                                placeholder="Ingrese su contraseña" required />
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                placeholder="Ingrese su contraseña" />
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="confirmPassword">Confirmar Contraseña</label>
-                                            <input type="password" id="confirmPassword" class="form-control"
-                                                placeholder="Confirme su contraseña" required />
+                                            <input type="password" id="confirmar_password" name="confirmar_password"
+                                                class="form-control" placeholder="Confirme su contraseña" />
                                         </div>
 
                                         <div class="text-center pt-1 mb-2 pb-1 mt-4">
@@ -66,7 +70,7 @@
 
                                         <div class="d-flex align-items-center justify-content-center">
                                             <p class="mb-0 me-2">¿Ya tiene una cuenta?</p>
-                                            <a class="text-muted" href="login.html">Iniciar Sesión</a>
+                                            <a class="text-muted" href="login.php">Iniciar Sesión</a>
                                         </div>
 
                                     </form>
@@ -89,6 +93,52 @@
             </div>
         </div>
     </section>
+
+
+
+    <?php
+    if (isset($_GET['mensaje'])) {
+        $tipoMensaje = $_GET['mensaje'];
+        $titulo = "";
+        $mensaje = "";
+        $backgroundColor = ""; // Variable para el color de fondo
+    
+        if ($tipoMensaje == 2) {
+            $titulo = "Éxito";
+            $mensaje = "Usuario registrado correctamente.";
+            $backgroundColor = "#8bcef7"; 
+        } elseif ($tipoMensaje == 3) {
+            $titulo = "Error";
+            $mensaje = "Usuario ya registrado.";
+            $backgroundColor = "#ffa59c"; 
+        } elseif ($tipoMensaje == 0) {
+            $titulo = "Error";
+            $mensaje = "Por favor, complete todos los campos.";
+            $backgroundColor = "#ffa59c";
+        } elseif ($tipoMensaje == 1) {
+            $titulo = "Error";
+            $mensaje = "Las contraseñas no coinciden.";
+            $backgroundColor = "#ffa59c";
+        } elseif ($tipoMensaje == 4) {
+            $titulo = "Error";
+            $mensaje = "Ocurrió un error al procesar la solicitud.";
+            $backgroundColor = "#ffa59c";
+        }
+
+        echo '<script>
+                iziToast.show({
+                    title: "' . $titulo . '",
+                    message: "' . $mensaje . '",
+                    position: "bottomRight",
+                    backgroundColor: "' . $backgroundColor . '",
+                    titleColor: "#303030",
+                    messageColor: "#303030",
+                    iconColor: "#ffffff"
+                });
+              </script>';
+    }
+    ?>
+
 
 </body>
 

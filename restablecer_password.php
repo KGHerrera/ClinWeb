@@ -30,7 +30,7 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-5 pb-1">Recuperar Contraseña de <a href="index.html">
+                                        <h4 class="mt-1 mb-5 pb-1">Recuperar Contraseña de <a href="index.php">
                                                 WebClin</a></h4>
                                     </div>
 
@@ -49,7 +49,7 @@
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿Recuerdas tu contraseña?</p>
-                                            <a class="text-muted" href="login.html">Iniciar Sesión</a>
+                                            <a class="text-muted" href="login.php">Iniciar Sesión</a>
                                         </div>
 
                                     </form>
