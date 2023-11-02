@@ -111,37 +111,32 @@ if(isset($_SESSION['usuario'])) {
         $mensaje = "";
         $backgroundColor = ""; // Variable para el color de fondo
     
-        if ($tipoMensaje == 2) {
-            $titulo = "Éxito";
-            $mensaje = "Usuario registrado correctamente.";
-            $backgroundColor = "#8bcef7"; 
-        } elseif ($tipoMensaje == 3) {
+        if ($tipoMensaje == 3) {
             $titulo = "Error";
             $mensaje = "Usuario ya registrado.";
-            $backgroundColor = "#ffa59c"; 
+            $backgroundColor = "#dc3545";
         } elseif ($tipoMensaje == 0) {
             $titulo = "Error";
             $mensaje = "Por favor, complete todos los campos.";
-            $backgroundColor = "#ffa59c";
+            $backgroundColor = "#dc3545";
         } elseif ($tipoMensaje == 1) {
             $titulo = "Error";
             $mensaje = "Las contraseñas no coinciden.";
-            $backgroundColor = "#ffa59c";
+            $backgroundColor = "#dc3545";
         } elseif ($tipoMensaje == 4) {
             $titulo = "Error";
             $mensaje = "Ocurrió un error al procesar la solicitud.";
-            $backgroundColor = "#ffa59c";
+            $backgroundColor = "#dc3545";
         }
 
         echo '<script>
                 iziToast.show({
+
+                    theme: "dark",
                     title: "' . $titulo . '",
                     message: "' . $mensaje . '",
                     position: "bottomRight",
                     backgroundColor: "' . $backgroundColor . '",
-                    titleColor: "#303030",
-                    messageColor: "#303030",
-                    iconColor: "#ffffff"
                 });
               </script>';
     }

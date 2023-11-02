@@ -1,13 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])) {
-    header("Location: index.php"); 
-    exit();
+if (!isset($_SESSION['usuario'])) {
+	header("Location: index.php");
+	exit();
 }
 ?>
 
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
 	<!-- Required meta tags -->
@@ -108,6 +108,10 @@ if(!isset($_SESSION['usuario'])) {
 		.top-navbar,
 		.navbar {
 			background-color: var(--top-navbar-color) !important;
+		}
+
+		.top-navbar{
+			border-bottom: 1px solid #495057;
 		}
 
 		.table-title {
@@ -407,7 +411,7 @@ if(!isset($_SESSION['usuario'])) {
 
 								<tbody>
 									<tr>
-									
+
 
 										<th>Kris Topala Rent</th>
 										<th>Spamton Ramos Rosas</th>
@@ -1199,35 +1203,35 @@ if(!isset($_SESSION['usuario'])) {
 		$tipoMensaje = $_GET['mensaje'];
 		$titulo = "";
 		$mensaje = "";
-		$backgroundColor = ""; // Variable para el color de fondo
-	
+		$backgroundColor = "";
+		$fontColor = "dark";
+
 		if ($tipoMensaje == 1) {
 			$titulo = "Éxito";
 			$mensaje = "El paciente se agregó correctamente.";
-			$backgroundColor = "#8bcef7"; // Azul grisáceo oscuro para altas
+			$backgroundColor = "#0d6efd";
 		} elseif ($tipoMensaje == 3) {
 			$titulo = "Éxito";
 			$mensaje = "El paciente se modificó correctamente.";
-			$backgroundColor = "#faef57"; // Amarillo grisáceo oscuro para modificaciones
+			$fontColor = "light";
+			$backgroundColor = "#ffc107";
 		} elseif ($tipoMensaje == 5) {
 			$titulo = "Éxito";
 			$mensaje = "El paciente se eliminó correctamente.";
-			$backgroundColor = "#ffa59c"; // Rojo grisáceo oscuro para bajas
+			$backgroundColor = "#dc3545";
 		} elseif ($tipoMensaje == 0 || $tipoMensaje == 4 || $tipoMensaje == 6) {
 			$titulo = "Error";
 			$mensaje = "Ocurrió un error al procesar la solicitud.";
-			$backgroundColor = "#ffa59c";
+			$backgroundColor = "#dc3545";
 		}
 
 		echo '<script>
                 iziToast.show({
+					theme: "'.$fontColor.'",
                     title: "' . $titulo . '",
                     message: "' . $mensaje . '",
                     position: "bottomRight",
                     backgroundColor: "' . $backgroundColor . '",
-                    titleColor: "#303030",
-                    messageColor: "#303030",
-                    iconColor: "#ffffff"
                 });
               </script>';
 	}
@@ -1293,18 +1297,14 @@ if(!isset($_SESSION['usuario'])) {
 
 
 	<script>
-		// Obtén el formulario y el contenedor de resultados
+	
 		const searchForm = document.getElementById('searchForm');
 		const resultadoBusqueda = document.getElementById('resultadoBusqueda');
 
-		// Maneja el evento de envío del formulario
 		searchForm.addEventListener('submit', function (event) {
-			event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
-
-			// Obtiene el valor del input de búsqueda
+			event.preventDefault(); 
 			const searchTerm = document.getElementById('searchInput').value;
 
-			// Modifica la URL sin redirigir y recarga la página
 			const newUrl = `?q=${searchTerm}`;
 			history.pushState(null, null, newUrl);
 			location.href = newUrl;
@@ -1313,7 +1313,6 @@ if(!isset($_SESSION['usuario'])) {
 
 	<script>
 		function verTodos() {
-			// Limpiar la URL y recargar la página
 			window.location.href = window.location.pathname;
 		}
 	</script>
