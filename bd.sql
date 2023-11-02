@@ -21,12 +21,12 @@ CREATE TABLE Personal (
 
 CREATE TABLE Usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    usuario VARCHAR(30),
-    correo VARCHAR(45),
-    password VARCHAR(100),
-    fk_personal INT,
-    FOREIGN KEY (fk_personal) REFERENCES Personal(id_personal)
+    nombre VARCHAR(50),
+    usuario VARCHAR(45),
+    password VARCHAR(100)
 );
+
+INSERT INTO Usuario (nombre, usuario, password) VALUES ('user', 'user', SHA1('user'));
 
 CREATE TABLE Paciente (
     id_paciente INT PRIMARY KEY AUTO_INCREMENT,
