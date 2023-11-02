@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])) {
+    header("Location: index.php"); 
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
 
@@ -36,28 +44,29 @@
                                         <h4 class="mt-1 mb-5 pb-1">Bienvenido a <a href="index.php"> WebClin</a></h4>
                                     </div>
 
-                                    <form>
+                                    <form action="php/controlador/verificarUsuario.php" method="POST">
 
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example11">Usuario</label>
-                                            <input type="email" id="form2Example11" class="form-control"
-                                                placeholder="nombre de usuario" />
+                                            <label class="form-label" for="form2Example11">Usuario (Correo
+                                                electronico)</label>
+                                            <input type="email" id="form2Example11" name="usuario" class="form-control"
+                                                placeholder="Ingresa tu correo electronico" />
 
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example22">Contraseña</label>
-                                            <input type="password" placeholder="contraseña"
-                                                id="form2Example22" class="form-control" />
+                                            <input type="password" placeholder="contraseña" name="password" id="form2Example22"
+                                                class="form-control" />
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1 mt-5">
-                                            <a class="btn btn-primary btn-block fa-lg mb-3 col-12" href="crud.php"
-                                                type="button">INICIAR SESION</button>
-                                                <a>
-                                                    <a class="text-muted" href="restablecer_password.php">Olvidaste tu
-                                                        contraseña?</a>
+                                            <button class="btn btn-primary btn-block fa-lg mb-3 col-12" href="crud.php"
+                                                type="submit">INICIAR SESION</button>
+
+                                            <a class="text-muted" href="restablecerPassword.php">Olvidaste tu
+                                                contraseña?</a>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
@@ -99,8 +108,20 @@
         if ($tipoMensaje == 2) {
             $titulo = "Éxito";
             $mensaje = "Usuario registrado correctamente. INICIA SESION";
-            $backgroundColor = "#8bcef7"; 
-        } 
+            $backgroundColor = "#8bcef7";
+        } elseif ($tipoMensaje == 1) {
+            $titulo = "Error";
+            $mensaje = "Usuario o contraseña incorrectos.";
+            $backgroundColor = "#ffa59c";
+        } elseif ($tipoMensaje == 3) {
+            $titulo = "Error";
+            $mensaje = "Durante el metodo POST.";
+            $backgroundColor = "#ffa59c";
+        } elseif ($tipoMensaje == 0) {
+            $titulo = "Error";
+            $mensaje = "Por favor, complete todos los campos.";
+            $backgroundColor = "#ffa59c";
+        }
 
         echo '<script>
                 iziToast.show({

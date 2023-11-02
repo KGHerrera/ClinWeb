@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])) {
+    header("Location: index.php"); 
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
 
@@ -46,7 +54,7 @@
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="usuario">Usuario</label>
+                                            <label class="form-label" for="usuario">Usuario (Correo electronico)</label>
                                             <input type="email" id="usuario" name="usuario" class="form-control"
                                                 placeholder="Ingrese su correo electronico" />
                                         </div>

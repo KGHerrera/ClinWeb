@@ -16,28 +16,9 @@
 
 <body>
 
-    <div class="container sticky-top bg-dark">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none fw-bold"
-                    style="color:#5ec4fb !important">
-                    WEBCLIN
-                </a>
-            </div>
 
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
-                <li><a href="#" class="nav-link px-2 text-muted">Publicaciones</a></li>
-                <li><a href="#" class="nav-link px-2 text-muted">Acerca de</a></li>
-            </ul>
+    <?php include 'header.php' ?>
 
-            <div>
-                <a href="login.php" type="button" class="btn btn-outline-warning me-2">Iniciar sesión</a>
-                <a href="registro.php" type="button" class="btn btn-outline-light">Registrarse</a>
-            </div>
-        </header>
-    </div>
 
     <div class="px-4 pt-5 my-5 text-center">
         <h1 class="display-4 fw-bold text-body-emphasis">Clinica Bienestar</h1>

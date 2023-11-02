@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])) {
+    header("Location: index.php"); 
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
 
@@ -17,7 +25,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-	
+
 	<!-- Incluye los estilos de iziToast (puedes personalizar esto según tus necesidades) -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
 
@@ -177,7 +185,7 @@
 
 		<div id="sidebar">
 			<div class="sidebar-header">
-				<a href="index.html">
+				<a href="index.php">
 					<h3 class="logo">WEBCLIN</h3>
 				</a>
 			</div>

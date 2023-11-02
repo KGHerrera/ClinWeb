@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])) {
+    header("Location: index.php"); 
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
 
