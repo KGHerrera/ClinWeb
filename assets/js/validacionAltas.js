@@ -24,9 +24,9 @@ formAgregarPaciente.addEventListener("submit", (e) => {
 
     validadoPaciente = true;
     const nombreRegex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+( [A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*$/;
-    const tipoSangreRegex = /^(A|B|AB|O)[+-]$/;
+    const tipoSangreRegex = /^(A|B|AB|O|a|b|ab|o)[+-]$/;
     const telefonoRegex = /^[0-9]+$/;
-    const rfcRegex = /^[A-Z&Ñ]{3,4}[0-9]{6}/;
+    const rfcRegex = /^[A-Za-z&Ññ]{3,4}[0-9]{6}/;
 
     engine(inputNombre, 0, "Solo letras", inputNombre.value.trim() === "", nombreRegex);
     engine(inputApellidoPaterno, 1, "Solo letras", inputApellidoPaterno.value.trim() === "", nombreRegex);
