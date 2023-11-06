@@ -20,6 +20,30 @@ if (!isset($_SESSION['usuario'])) {
 	<!----css3---->
 	<link rel="stylesheet" href="assets/css/custom.css">
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var jQuery = $.noConflict();
+			// Verificar si existe la variable de sesión 'error_altas'
+			<?php if (isset($_SESSION['error_altas'])) { ?>
+				// Ejecutar el evento de clic en el botón para abrir el modal
+				$('#agregarPacienteModal').modal('show');
+				<?php
+				// Limpia la variable de sesión después de usarla para que no se abra el modal en futuras recargas de la página
+				unset($_SESSION['error_altas']);
+			} ?>
+
+			<?php if (isset($_SESSION['error_editar'])) { ?>
+				// Ejecutar el evento de clic en el botón para abrir el modal
+				$('#editarPacienteModal').modal('show');
+				<?php
+				// Limpia la variable de sesión después de usarla para que no se abra el modal en futuras recargas de la página
+				unset($_SESSION['error_altas']);
+				unset($_SESSION['error_editar']);
+			} ?>
+		});
+	</script>
+
 
 	<!--google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,7 +134,7 @@ if (!isset($_SESSION['usuario'])) {
 			background-color: var(--top-navbar-color) !important;
 		}
 
-		.top-navbar{
+		.top-navbar {
 			border-bottom: 1px solid #495057;
 		}
 
@@ -520,7 +544,8 @@ if (!isset($_SESSION['usuario'])) {
 												<!-- Nombre -->
 												<div class="form-group">
 													<label>Nombre:</label>
-													<input type="text" class="form-control" name="nombre" id="nombre">
+													<input type="text" class="form-control" name="nombre" id="nombre"
+														value="<?php echo isset($_SESSION['a_nombre']) ? $_SESSION['a_nombre'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -529,7 +554,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Apellido Paterno:</label>
 													<input type="text" class="form-control" name="apellido_paterno"
-														id="apellido_paterno">
+														id="apellido_paterno"
+														value="<?php echo isset($_SESSION['a_apellido_paterno']) ? $_SESSION['a_apellido_paterno'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -540,7 +566,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Apellido Materno:</label>
 													<input type="text" class="form-control" name="apellido_materno"
-														id="apellido_materno">
+														id="apellido_materno"
+														value="<?php echo isset($_SESSION['a_apellido_materno']) ? $_SESSION['a_apellido_materno'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -549,7 +576,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Fecha de Nacimiento:</label>
 													<input type="date" class="form-control" name="fecha_nacimiento"
-														id="fecha_nacimiento">
+														id="fecha_nacimiento"
+														value="<?php echo isset($_SESSION['a_fecha_nacimiento']) ? $_SESSION['a_fecha_nacimiento'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -560,7 +588,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Tipo de Sangre:</label>
 													<input type="text" class="form-control" name="tipo_sangre"
-														id="tipo_sangre">
+														id="tipo_sangre"
+														value="<?php echo isset($_SESSION['a_tipo_sangre']) ? $_SESSION['a_tipo_sangre'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -569,7 +598,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Teléfono:</label>
 													<input type="text" class="form-control" name="telefono"
-														id="telefono">
+														id="telefono"
+														value="<?php echo isset($_SESSION['a_telefono']) ? $_SESSION['a_telefono'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -579,7 +609,8 @@ if (!isset($_SESSION['usuario'])) {
 												<!-- RFC -->
 												<div class="form-group">
 													<label>RFC:</label>
-													<input type="text" class="form-control" name="rfc" id="rfc">
+													<input type="text" class="form-control" name="rfc" id="rfc"
+														value="<?php echo isset($_SESSION['a_rfc']) ? $_SESSION['a_rfc'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -589,13 +620,14 @@ if (!isset($_SESSION['usuario'])) {
 													<label>Tipo de Paciente:</label>
 													<select class="form-control" name="tipo_paciente"
 														id="tipo_paciente">
-														<option value="0">Selecciona opcion...</option>
-														<option value="normal">Normal</option>
-														<option value="frecuente">Frecuente</option>
-														<option value="especial">Especial</option>
-														<option value="discapacitado">Discapacitado</option>
-														<option value="vip">VIP</option>
-														<option value="regular">Regular</option>
+														<option value="0">Selecciona opción...</option>
+														<option value="normal" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'normal' ? 'selected' : ''; ?>>Normal</option>
+														<option value="frecuente" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'frecuente' ? 'selected' : ''; ?>>Frecuente</option>
+														<option value="especial" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'especial' ? 'selected' : ''; ?>>Especial</option>
+														<option value="discapacitado" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'discapacitado' ? 'selected' : ''; ?>>Discapacitado</option>
+														<option value="vip" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'vip' ? 'selected' : ''; ?>>
+															VIP</option>
+														<option value="regular" <?php echo isset($_SESSION['a_tipo_paciente']) && $_SESSION['a_tipo_paciente'] == 'regular' ? 'selected' : ''; ?>>Regular</option>
 													</select>
 													<span class="errorAgregar  text-danger"></span>
 												</div>
@@ -607,7 +639,8 @@ if (!isset($_SESSION['usuario'])) {
 												<!-- Correo -->
 												<div class="form-group">
 													<label>Correo:</label>
-													<input type="email" class="form-control" name="correo" id="correo">
+													<input type="email" class="form-control" name="correo" id="correo"
+														value="<?php echo isset($_SESSION['a_correo']) ? $_SESSION['a_correo'] : ''; ?>">
 													<span class="errorAgregar  text-danger"></span>
 												</div>
 											</div>
@@ -655,14 +688,16 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>ID:</label>
 													<input type="text" class="form-control" id="inputID"
-														name="idPaciente" readonly>
+														name="idPaciente" readonly
+														value="<?php echo isset($_SESSION['m_idPaciente']) ? $_SESSION['m_idPaciente'] : ''; ?>">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nombre:</label>
 													<input type="text" class="form-control" id="inputNombre"
-														name="nombre">
+														name="nombre"
+														value="<?php echo isset($_SESSION['m_nombre']) ? $_SESSION['m_nombre'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -670,7 +705,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Apellido Paterno:</label>
 													<input type="text" class="form-control" id="inputApellidoPaterno"
-														name="apellido_paterno">
+														name="apellido_paterno"
+														value="<?php echo isset($_SESSION['m_apellido_paterno']) ? $_SESSION['m_apellido_paterno'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -682,7 +718,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Apellido Materno:</label>
 													<input type="text" class="form-control" id="inputApellidoMaterno"
-														name="apellido_materno">
+														name="apellido_materno"
+														value="<?php echo isset($_SESSION['m_apellido_materno']) ? $_SESSION['m_apellido_materno'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -690,7 +727,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Fecha de Nacimiento:</label>
 													<input type="date" class="form-control" id="inputFechaNacimiento"
-														name="fecha_nacimiento">
+														name="fecha_nacimiento"
+														value="<?php echo isset($_SESSION['m_fecha_nacimiento']) ? $_SESSION['m_fecha_nacimiento'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -702,7 +740,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Tipo de Sangre:</label>
 													<input type="text" class="form-control" id="inputTipoSangre"
-														name="tipo_sangre">
+														name="tipo_sangre"
+														value="<?php echo isset($_SESSION['m_tipo_sangre']) ? $_SESSION['m_tipo_sangre'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -710,7 +749,8 @@ if (!isset($_SESSION['usuario'])) {
 												<div class="form-group">
 													<label>Teléfono:</label>
 													<input type="text" class="form-control" id="inputTelefono"
-														name="telefono">
+														name="telefono"
+														value="<?php echo isset($_SESSION['m_telefono']) ? $_SESSION['m_telefono'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -721,7 +761,8 @@ if (!isset($_SESSION['usuario'])) {
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>RFC:</label>
-													<input type="text" class="form-control" id="inputRFC" name="rfc">
+													<input type="text" class="form-control" id="inputRFC" name="rfc"
+														value="<?php echo isset($_SESSION['m_rfc']) ? $_SESSION['m_rfc'] : ''; ?>">
 													<span class="errorModificar text-danger"></span>
 												</div>
 											</div>
@@ -730,13 +771,14 @@ if (!isset($_SESSION['usuario'])) {
 													<label>Tipo de Paciente:</label>
 													<select class="form-control" id="inputTipoPaciente"
 														name="tipo_paciente">
-														<option value="0">Selecciona opcion ...</option>
-														<option value="normal">Normal</option>
-														<option value="frecuente">Frecuente</option>
-														<option value="especial">Especial</option>
-														<option value="discapacitado">Discapacitado</option>
-														<option value="vip">VIP</option>
-														<option value="regular">Regular</option>
+														<option value="0">Selecciona opción...</option>
+														<option value="normal" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'normal' ? 'selected' : ''; ?>>Normal</option>
+														<option value="frecuente" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'frecuente' ? 'selected' : ''; ?>>Frecuente</option>
+														<option value="especial" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'especial' ? 'selected' : ''; ?>>Especial</option>
+														<option value="discapacitado" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'discapacitado' ? 'selected' : ''; ?>>Discapacitado</option>
+														<option value="vip" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'vip' ? 'selected' : ''; ?>>
+															VIP</option>
+														<option value="regular" <?php echo isset($_SESSION['m_tipo_paciente']) && $_SESSION['m_tipo_paciente'] == 'regular' ? 'selected' : ''; ?>>Regular</option>
 													</select>
 													<span class="errorModificar text-danger"></span>
 												</div>
@@ -749,7 +791,8 @@ if (!isset($_SESSION['usuario'])) {
 													<div class="form-group">
 														<label>Correo:</label>
 														<input type="email" class="form-control" id="inputCorreo"
-															name="correo">
+															name="correo"
+															value="<?php echo isset($_SESSION['m_correo']) ? $_SESSION['m_correo'] : ''; ?>">
 														<span class="errorModificar text-danger"></span>
 													</div>
 												</div>
@@ -1199,8 +1242,10 @@ if (!isset($_SESSION['usuario'])) {
 	<!------main-content-end----------->
 
 	<?php
-	if (isset($_GET['mensaje'])) {
-		$tipoMensaje = $_GET['mensaje'];
+
+	if (isset($_SESSION['mensaje'])) {
+
+		$tipoMensaje = $_SESSION['mensaje'];
 		$titulo = "";
 		$mensaje = "";
 		$backgroundColor = "";
@@ -1227,20 +1272,17 @@ if (!isset($_SESSION['usuario'])) {
 
 		echo '<script>
                 iziToast.show({
-					theme: "'.$fontColor.'",
+					theme: "' . $fontColor . '",
                     title: "' . $titulo . '",
                     message: "' . $mensaje . '",
                     position: "bottomRight",
                     backgroundColor: "' . $backgroundColor . '",
                 });
               </script>';
+
+		unset($_SESSION['mensaje']);
 	}
 	?>
-
-
-
-
-
 
 
 	<!-------complete html----------->
@@ -1297,12 +1339,12 @@ if (!isset($_SESSION['usuario'])) {
 
 
 	<script>
-	
+
 		const searchForm = document.getElementById('searchForm');
 		const resultadoBusqueda = document.getElementById('resultadoBusqueda');
 
 		searchForm.addEventListener('submit', function (event) {
-			event.preventDefault(); 
+			event.preventDefault();
 			const searchTerm = document.getElementById('searchInput').value;
 
 			const newUrl = `?q=${searchTerm}`;
@@ -1324,3 +1366,30 @@ if (!isset($_SESSION['usuario'])) {
 </body>
 
 </html>
+
+<?php
+
+unset($_SESSION['m_idPaciente']);
+unset($_SESSION['m_nombre']);
+unset($_SESSION['m_apellido_paterno']);
+unset($_SESSION['m_apellido_materno']);
+unset($_SESSION['m_fecha_nacimiento']);
+unset($_SESSION['m_tipo_sangre']);
+unset($_SESSION['m_telefono']);
+unset($_SESSION['m_correo']);
+unset($_SESSION['m_tipo_paciente']);
+unset($_SESSION['m_rfc']);
+
+// Unset para variables de sesión de agregar paciente
+unset($_SESSION['a_nombre']);
+unset($_SESSION['a_apellido_paterno']);
+unset($_SESSION['a_apellido_materno']);
+unset($_SESSION['a_fecha_nacimiento']);
+unset($_SESSION['a_tipo_sangre']);
+unset($_SESSION['a_telefono']);
+unset($_SESSION['a_correo']);
+unset($_SESSION['a_tipo_paciente']);
+unset($_SESSION['a_rfc']);
+unset($_SESSION['a_mensaje']);
+
+?>

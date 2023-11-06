@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include('../modelo/Paciente.php');
 include('../conexion/Conexion.php');
 include('../controlador/PacienteDAO.php');
@@ -55,7 +58,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verificar errores
     if (count($errors) > 0) {
-        header('Location: ../../crud.php?mensaje=0&errors=' . urlencode(json_encode($errors)));
+
+        $_SESSION['a_nombre'] = strtolower($_POST['nombre']);
+        $_SESSION['a_apellido_paterno'] = strtolower($_POST['apellido_paterno']);
+        $_SESSION['a_apellido_materno'] = strtolower($_POST['apellido_materno']);
+        $_SESSION['a_fecha_nacimiento'] = $_POST['fecha_nacimiento'];
+        $_SESSION['a_tipo_sangre'] = strtoupper($_POST['tipo_sangre']);
+        $_SESSION['a_telefono'] = $_POST['telefono'];
+        $_SESSION['a_correo'] = strtolower($_POST['correo']);
+        $_SESSION['a_tipo_paciente'] = strtolower($_POST['tipo_paciente']);
+        $_SESSION['a_rfc'] = strtoupper($_POST['rfc']);
+
+        $_SESSION['mensaje'] = 0;
+        $_SESSION['error_altas'] = true;
+
+        
+        
+        header('Location: ../../crud.php');
         exit();
     }
 
@@ -66,14 +85,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $pacienteDAO->altaPaciente($paciente);
 
     if ($resultado) {
-        header('Location: ../../crud.php?mensaje=1');
+        $_SESSION['mensaje'] = 1;
+        header('Location: ../../crud.php');
         exit();
     } else {
-        header('Location: ../../crud.php?mensaje=0');
+
+        $_SESSION['a_nombre'] = strtolower($_POST['nombre']);
+        $_SESSION['a_apellido_paterno'] = strtolower($_POST['apellido_paterno']);
+        $_SESSION['a_apellido_materno'] = strtolower($_POST['apellido_materno']);
+        $_SESSION['a_fecha_nacimiento'] = $_POST['fecha_nacimiento'];
+        $_SESSION['a_tipo_sangre'] = strtoupper($_POST['tipo_sangre']);
+        $_SESSION['a_telefono'] = $_POST['telefono'];
+        $_SESSION['a_correo'] = strtolower($_POST['correo']);
+        $_SESSION['a_tipo_paciente'] = strtolower($_POST['tipo_paciente']);
+        $_SESSION['a_rfc'] = strtoupper($_POST['rfc']);
+
+        $_SESSION['mensaje'] = 0;
+        $_SESSION['error_altas'] = true;
+
+        header('Location: ../../crud.php');
         exit();
     }
 } else {
-    header('Location: ../../crud.php?mensaje=0');
+    $_SESSION['mensaje'] = 0;
+    $_SESSION['error_altas'] = true;
+    header('Location: ../../crud.php');
     exit();
 }
 ?>
