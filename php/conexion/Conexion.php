@@ -156,6 +156,126 @@ class Conexion
 
         return null;
     }
+
+
+    public static function altaCita($cita)
+    {
+        try {
+            Conexion::$conexion->beginTransaction();
+
+            $sql = 'INSERT INTO Cita (fk_paciente, fk_personal, fk_sala, fecha_hora, motivo_cita) 
+            VALUES (?, ?, ?, ?, ?)';
+
+            $query = Conexion::$conexion->prepare($sql);
+            Conexion::$conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            $query->bindValue(1, $cita->getFkPaciente(), PDO::PARAM_INT);
+            $query->bindValue(2, $cita->getFkPersonal(), PDO::PARAM_INT);
+            $query->bindValue(3, $cita->getFkSala(), PDO::PARAM_INT);
+            $query->bindValue(4, $cita->getFechaHora(), PDO::PARAM_STR);
+            $query->bindValue(5, $cita->getMotivoCita(), PDO::PARAM_STR);
+            $query->execute();
+
+            Conexion::$conexion->commit();
+
+            return true;
+        } catch (Exception $e) {
+            Conexion::$conexion->rollBack();
+        }
+
+        return false;
+    }
+
+    public static function bajaCita($idCita)
+    {
+        try {
+            Conexion::$conexion->beginTransaction();
+
+            $sql = 'DELETE FROM Cita WHERE id_cita = ?';
+
+            $query = Conexion::$conexion->prepare($sql);
+            $query->bindValue(1, $idCita, PDO::PARAM_INT);
+            $query->execute();
+
+            Conexion::$conexion->commit();
+
+            return true;
+        } catch (Exception $e) {
+            Conexion::$conexion->rollBack();
+        }
+
+        return false;
+    }
+
+    public static function actualizarCita($cita)
+    {
+        try {
+            Conexion::$conexion->beginTransaction();
+
+            $sql = 'UPDATE Cita SET fk_paciente = ?, fk_personal = ?, fk_sala = ?, fecha_hora = ?, motivo_cita = ? WHERE id_cita = ?';
+
+            $query = Conexion::$conexion->prepare($sql);
+            Conexion::$conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            $query->bindValue(1, $cita->getFkPaciente(), PDO::PARAM_INT);
+            $query->bindValue(2, $cita->getFkPersonal(), PDO::PARAM_INT);
+            $query->bindValue(3, $cita->getFkSala(), PDO::PARAM_INT);
+            $query->bindValue(4, $cita->getFechaHora(), PDO::PARAM_STR);
+            $query->bindValue(5, $cita->getMotivoCita(), PDO::PARAM_STR);
+            $query->bindValue(6, $cita->getIdCita(), PDO::PARAM_INT);
+            $query->execute();
+
+            Conexion::$conexion->commit();
+
+            return true;
+        } catch (Exception $e) {
+            Conexion::$conexion->rollBack();
+        }
+
+        return false;
+    }
+
+    public static function mostrarCitas()
+    {
+        try {
+            $sql = 'SELECT * FROM Cita';
+            $query = Conexion::$conexion->prepare($sql);
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo 'Error en la consulta: ' . $e->getMessage();
+            return null;
+        }
+    }
+
+    public static function buscarCita($criterio)
+    {
+        try {
+            $sql = "SELECT * FROM Cita WHERE ";
+            $conditions = [];
+
+            $criterio = Conexion::$conexion->quote("%$criterio%");
+
+            $campos = ['fk_paciente', 'fk_personal', 'fk_sala', 'fecha_hora', 'motivo_cita'];
+
+            foreach ($campos as $campo) {
+                $conditions[] = "$campo LIKE $criterio";
+            }
+
+            $consulta = $sql . implode(" OR ", $conditions);
+
+            $query = Conexion::$conexion->prepare($consulta);
+            $query->execute();
+
+            return $query;
+        } catch (Exception $e) {
+            echo 'Error en la búsqueda: ' . $e->getMessage();
+        }
+
+        return null;
+    }
+
+
+
+
 }
 
 Conexion::obtenerConexion();

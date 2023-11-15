@@ -25,10 +25,9 @@
             <div class="d-flex align-items-center">
                 <div class="separator-vertical"></div>
                 <?php
-                session_start();
                 if (isset($_SESSION['usuario'])) {
                     echo '<a href="crud.php" type="button" class="btn btn-primary me-2">Dashboard</a>';
-                    echo '<a href="php/controlador/cerrarSesion.php" type="button" class="btn btn-danger">Cerrar sesión</a>';
+                    echo '<a href="php/controlador/cerrarSesion.php" type="button" class="btn btn-light">Cerrar sesión</a>';
                 } else {
                     echo '<a href="login.php" type="button" class="btn btn-primary me-2">Iniciar sesión</a>';
                     echo '<a href="registro.php" type="button" class="btn btn-light">Registrarse</a>';

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -72,6 +78,20 @@
 
         .card-body {
             background-color: #171e27 !important;
+        }
+
+        .btn-primary {
+            background-color: #356a87;
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #356aaa;
+        }
+
+        .btn-light {
+            border: none;
         }
     </style>
 
@@ -169,7 +189,8 @@
                     <div class="col-lg-6 d-flex align-items-center">
                         <div>
                             <h2 class="mb-4 mt-4 text-info text-start">EXPERIENCIA DE CALIDAD</h2>
-                            <p class="text-start">Nuestros servicios están diseñados para proporcionar una experiencia de atención médica
+                            <p class="text-start">Nuestros servicios están diseñados para proporcionar una experiencia
+                                de atención médica
                                 de calidad. Nos
                                 esforzamos por ofrecer atención de primera clase en un entorno acogedor y cuidadoso.</p>
                         </div>
