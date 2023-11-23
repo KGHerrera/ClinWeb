@@ -45,7 +45,7 @@ if (isset($_SESSION['usuario'])) {
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    <h4 class="mt-1 mb-4 pb-1">Registro en <a href="index.php"> WebClin</a></h4>
+                    <h4 class="mt-1 mb-4 pb-1">Registro en <a href="index"> WebClin</a></h4>
                   </div>
 
                   <form method="POST" action="php/controlador/agregarUsuario.php">
@@ -89,7 +89,7 @@ if (isset($_SESSION['usuario'])) {
 
                     <div class="d-flex align-items-center justify-content-center">
                       <p class="mb-0 me-2">¿Ya tienes una cuenta?</p>
-                      <a class="text-muted" href="login.php">Iniciar Sesión</a>
+                      <a class="text-muted" href="login">Iniciar Sesión</a>
                     </div>
 
                   </form>

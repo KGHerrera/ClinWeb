@@ -213,7 +213,7 @@ if (!isset($_SESSION['usuario'])) {
 
     <div id="sidebar">
       <div class="sidebar-header">
-        <a href="index.php">
+        <a href="index">
           <h3 class="logo">WEBCLIN</h3>
         </a>
       </div>
