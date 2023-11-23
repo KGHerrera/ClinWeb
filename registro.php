@@ -23,7 +23,7 @@ if (isset($_SESSION['usuario'])) {
 
   <link rel="stylesheet" href="assets/css/form.css">
 
-
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
 
@@ -74,7 +74,14 @@ if (isset($_SESSION['usuario'])) {
                         placeholder="Confirme su contraseña" />
                     </div>
 
-                    <!-- <div class="g-recaptcha" data-sitekey="6LdO0gspAAAAAGgU_G8iq0fE1oEOciLSlsXRxaH8"></div> -->
+                    
+
+                    <div class="form-outline mb-4">
+                      <div class="g-recaptcha" data-sitekey="6Le8ihopAAAAAACtthFP1AW32gwSW02Afcc8tvxt">
+
+                      </div>
+                    </div>
+
 
                     <div class="text-center pt-1 mb-2 pb-1 mt-4">
                       <button class="btn btn-light btn-block fa-lg mb-3 col-12" type="submit">REGISTRARSE</button>
@@ -130,6 +137,11 @@ if (isset($_SESSION['usuario'])) {
     } elseif ($tipoMensaje == 4) {
       $titulo = "Error";
       $mensaje = "Ocurrió un error al procesar la solicitud.";
+      $backgroundColor = "#dc3545";
+    }
+    elseif ($tipoMensaje == 5) {
+      $titulo = "Error";
+      $mensaje = "Al parecer eres un robot.";
       $backgroundColor = "#dc3545";
     }
 

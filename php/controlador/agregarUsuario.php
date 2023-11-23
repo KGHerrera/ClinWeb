@@ -3,6 +3,19 @@ include '../modelo/Usuario.php';
 include '../conexion/ConexionUsuarios.php';
 include '../controlador/UsuarioDAO.php';
 
+
+$secretKey = "6Le8ihopAAAAAGFIT4xu5DWE_6X12GoMK7TVEM_a";
+$recaptchaResponse = $_POST['g-recaptcha-response'];
+
+$recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}";
+$recaptchaResult = json_decode(file_get_contents($recaptchaUrl));
+
+if (!$recaptchaResult->success) {
+    // El reCAPTCHA no se verificó correctamente
+    header('Location: ../../registro.php?mensaje=5');
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nombre = $_POST['nombre'];
