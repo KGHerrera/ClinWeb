@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($cadenaJSON == false) {
         echo json_encode(array("mensaje" => "No hay cadena de petición JSON"));
     } else {
-        $datos = json_decode($cadenaJSON, true);
+        $datos = json_decode(urldecode($cadenaJSON), true);
 
         // Verifica que los datos necesarios estén presentes
         if (isset($datos['id_cita'])) {
