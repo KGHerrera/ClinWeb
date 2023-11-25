@@ -8,13 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $cadenaJSON = file_get_contents('php://input');
 
     if ($cadenaJSON == false) {
-        echo "No hay cadena de petición JSON";
+        echo json_encode(array("exito" => false, "mensaje" => "No hay cadena de petición JSON"));
     } else {
         // Decodificar la cadena JSON
-        $datos = json_decode($cadenaJSON, true);
+        $datos = json_decode(urldecode($cadenaJSON), true);
 
         if ($datos == null) {
-            echo "Error al decodificar el JSON";
+            echo json_encode(array("exito" => false, "mensaje" => "Error al decodificar el JSON"));
         } else {
             // Crear un objeto Cita y asignar los valores directamente
             $cita = new Cita();
@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $resultado = $citaDAO->altaCita($cita);
 
             if ($resultado) {
-                echo json_encode(array("mensaje" => "Cita agregada correctamente"));
+                echo json_encode(array("exito" => true, "mensaje" => "Cita agregada correctamente"));
             } else {
-                echo json_encode(array("mensaje" => "Error al agregar la cita"));
+                echo json_encode(array("exito" => false, "mensaje" => "Error al agregar la cita"));
             }
         }
     }

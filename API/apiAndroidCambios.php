@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($cadenaJSON == false) {
         echo "No hay cadena de petición JSON";
     } else {
-        $datos = json_decode($cadenaJSON, true);
+        $datos = json_decode(urldecode($cadenaJSON), true);
 
         // Verificar si los datos necesarios están presentes
         if (
